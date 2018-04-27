@@ -9,13 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
+using System.Configuration;
 
 namespace Kutuphane_Yonetim {
     public partial class Login : MaterialForm {
         MaterialSkin.ColorScheme colorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Amber600, MaterialSkin.Primary.Grey800, MaterialSkin.Primary.Blue700, MaterialSkin.Accent.Cyan400, MaterialSkin.TextShade.WHITE);
         MaterialSkin.MaterialSkinManager skinManager;
 
-        Insan currentInsan;
+        public Insan aktifKullanici;
 
         public Login() {
             InitializeComponent();
@@ -26,9 +27,62 @@ namespace Kutuphane_Yonetim {
             //SetBackgroundPicture(210,0);
             //pictureBoxBG.Visible = false;
         }
-
+        bool IsNumeric(string str) {
+            bool flag=true;
+            for (int i = 0; i < str.Length; i++) {
+                if (!(str[i] >= '0' && str[i] <= '9')) {
+                    return false;
+                }
+            }
+            return true;
+        }
         private void loginButton_Click_1(object sender, EventArgs e) {
-            textboxUsername.Text += "k";
+            if(string.IsNullOrEmpty(textboxPassword.Text) || string.IsNullOrEmpty(textboxUsername.Text)) {
+                return;
+            }
+
+            try {
+
+
+                string connString = ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString;
+                NpgsqlConnection connection = new NpgsqlConnection(connString);
+                connection.Open();
+                NpgsqlCommand command;
+                if (IsNumeric(textboxUsername.Text)) {//ak_id
+                    command = new NpgsqlCommand("SELECT * FROM kisi WHERE ak_id = " + textboxUsername.Text, connection);
+                } else {//eposta
+                    command = new NpgsqlCommand("SELECT * FROM kisi WHERE eposta = '" + textboxUsername.Text + "'", connection);
+                }
+
+                NpgsqlDataReader reader = command.ExecuteReader();
+                reader.Read();
+                if (reader[0] != null) {
+                    string password = reader[5].ToString();
+
+                    if (password == textboxPassword.Text) {
+                        string id = reader[0].ToString();
+                        string ad = reader[1].ToString();
+                        string soyad = reader[2].ToString();
+                        AkilliKart kart = new AkilliKart(0, reader[3].ToString());
+                        string eposta = reader[4].ToString();
+                        aktifKullanici = new Insan(id, ad, soyad, kart, eposta, password);
+                        MessageBox.Show("Basarili bir sekilde giris yapildi");
+
+                    } else {
+                        MessageBox.Show("Lütfen bilgilerinizi kontrol ediniz");
+
+                    }
+
+                } else {
+                    MessageBox.Show("Veri gelmedi");
+                }
+                reader.Close();
+                connection.Close();
+
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message.ToString());
+                
+            }
         }
 
         #region layoutInit

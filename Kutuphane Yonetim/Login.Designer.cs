@@ -37,7 +37,7 @@
             this.textboxUsername.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textboxUsername.Depth = 0;
             this.textboxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textboxUsername.Hint = "Username";
+            this.textboxUsername.Hint = "Akilli Kart Numarası veya E-Posta";
             this.textboxUsername.Location = new System.Drawing.Point(130, 155);
             this.textboxUsername.MouseState = MaterialSkin.MouseState.HOVER;
             this.textboxUsername.Name = "textboxUsername";

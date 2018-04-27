@@ -12,7 +12,7 @@ namespace Kutuphane_Yonetim
         private int kitapSiniri;
         private int oduncSuresi;
 
-        public OgretimUyesi(string id, string ad, string soyad, AkilliKart kart, string eposta, int kitapSiniri, int oduncSuresi) : base(id, ad, soyad, kart, eposta)
+        public OgretimUyesi(string id, string ad, string soyad, AkilliKart kart, string eposta, string password, int kitapSiniri, int oduncSuresi) : base(id, ad, soyad, kart, eposta, password)
         {
             this.kitapSiniri = kitapSiniri;
             this.oduncSuresi = oduncSuresi;

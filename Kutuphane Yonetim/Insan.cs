@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kutuphane_Yonetim
 {
-    class Insan
+    public class Insan
     {
 
         private string id;
@@ -14,14 +14,16 @@ namespace Kutuphane_Yonetim
         private string soyad;
         private AkilliKart kart;
         private string eposta;
+        private string password;
 
-        public Insan(string id,string ad,string soyad,AkilliKart kart,string eposta)
+        public Insan(string id,string ad,string soyad,AkilliKart kart,string eposta, string password)
         {
             this.id = id;
             this.ad = ad;
             this.soyad = soyad;
             this.kart = kart;
             this.eposta = eposta;
+            this.password = password;
         }
 
     }

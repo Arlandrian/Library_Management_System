@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kutuphane_Yonetim
 {
-    class AkilliKart
+    public class AkilliKart
     {
 
         private float bakiye;
