@@ -28,7 +28,6 @@ namespace Kutuphane_Yonetim {
             //pictureBoxBG.Visible = false;
         }
         bool IsNumeric(string str) {
-            bool flag=true;
             for (int i = 0; i < str.Length; i++) {
                 if (!(str[i] >= '0' && str[i] <= '9')) {
                     return false;
