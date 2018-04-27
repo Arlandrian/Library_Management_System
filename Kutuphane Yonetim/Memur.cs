@@ -9,13 +9,12 @@ namespace Kutuphane_Yonetim
     class Memur : Insan
     {
 
-        private int kitapSiniri;
-        private int oduncSuresi;
+        private static int kitapSiniri = 3;// default : 3 kitap
+        private static int oduncSuresi = 30;// default : 30 gün 
 
-        public Memur(string id, string ad, string soyad, AkilliKart kart, string eposta, int kitapSiniri, int oduncSuresi) : base(id, ad, soyad, kart, eposta)
+        public Memur(string id, string ad, string soyad, AkilliKart kart, string eposta) : base(id, ad, soyad, kart, eposta)
         {
-            this.kitapSiniri = kitapSiniri;
-            this.oduncSuresi = oduncSuresi;
+
         }
 
     }

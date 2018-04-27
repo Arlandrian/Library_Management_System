@@ -9,13 +9,12 @@ namespace Kutuphane_Yonetim
     class OgretimUyesi : Insan
     {
 
-        private int kitapSiniri;
-        private int oduncSuresi;
+        private static int kitapSiniri = 6;// default : 6 kitap
+        private static int oduncSuresi = 90;// default : 90 gün 
 
-        public OgretimUyesi(string id, string ad, string soyad, AkilliKart kart, string eposta, int kitapSiniri, int oduncSuresi) : base(id, ad, soyad, kart, eposta)
+        public OgretimUyesi(string id, string ad, string soyad, AkilliKart kart, string eposta) : base(id, ad, soyad, kart, eposta)
         {
-            this.kitapSiniri = kitapSiniri;
-            this.oduncSuresi = oduncSuresi;
+
         }
 
     }
