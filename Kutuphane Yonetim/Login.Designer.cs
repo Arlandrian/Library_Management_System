@@ -54,7 +54,7 @@
             this.textboxPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textboxPassword.Depth = 0;
             this.textboxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.textboxPassword.Hint = "Password";
+            this.textboxPassword.Hint = "Şifre";
             this.textboxPassword.Location = new System.Drawing.Point(130, 210);
             this.textboxPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.textboxPassword.Name = "textboxPassword";
@@ -76,18 +76,19 @@
             this.loginButton.Primary = true;
             this.loginButton.Size = new System.Drawing.Size(75, 23);
             this.loginButton.TabIndex = 2;
-            this.loginButton.Text = "Login";
+            this.loginButton.Text = "Giriş";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click_1);
             // 
             // labelTitle
             // 
-            this.labelTitle.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.Location = new System.Drawing.Point(58, 96);
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Location = new System.Drawing.Point(38, 92);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(378, 35);
+            this.labelTitle.Size = new System.Drawing.Size(93, 37);
             this.labelTitle.TabIndex = 3;
-            this.labelTitle.Text = "Library Management System";
+            this.labelTitle.Text = "Giriş";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // registerButton
@@ -99,7 +100,7 @@
             this.registerButton.Primary = true;
             this.registerButton.Size = new System.Drawing.Size(75, 23);
             this.registerButton.TabIndex = 5;
-            this.registerButton.Text = "Register";
+            this.registerButton.Text = "Kayıt Ol";
             this.registerButton.UseVisualStyleBackColor = true;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
@@ -126,10 +127,11 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.MinimizeBox = false;
             this.Name = "Login";
-            this.Text = "Login";
+            this.Text = "Kütüphane Yönetim Sistemi";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBG)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

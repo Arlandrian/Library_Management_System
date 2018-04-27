@@ -50,7 +50,7 @@
             // textboxName
             // 
             this.textboxName.Depth = 0;
-            this.textboxName.Hint = "Name";
+            this.textboxName.Hint = "İsim";
             this.textboxName.Location = new System.Drawing.Point(44, 222);
             this.textboxName.MouseState = MaterialSkin.MouseState.HOVER;
             this.textboxName.Name = "textboxName";
@@ -65,7 +65,7 @@
             // textboxLastname
             // 
             this.textboxLastname.Depth = 0;
-            this.textboxLastname.Hint = "Last Name";
+            this.textboxLastname.Hint = "Soyisim";
             this.textboxLastname.Location = new System.Drawing.Point(44, 285);
             this.textboxLastname.MouseState = MaterialSkin.MouseState.HOVER;
             this.textboxLastname.Name = "textboxLastname";
@@ -80,7 +80,7 @@
             // textboxPassword
             // 
             this.textboxPassword.Depth = 0;
-            this.textboxPassword.Hint = "Password";
+            this.textboxPassword.Hint = "Şifre";
             this.textboxPassword.Location = new System.Drawing.Point(44, 348);
             this.textboxPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.textboxPassword.Name = "textboxPassword";
@@ -97,14 +97,14 @@
             this.registerButton.AutoSize = true;
             this.registerButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.registerButton.Depth = 0;
-            this.registerButton.Location = new System.Drawing.Point(172, 408);
+            this.registerButton.Location = new System.Drawing.Point(174, 408);
             this.registerButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.registerButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.registerButton.Name = "registerButton";
             this.registerButton.Primary = false;
-            this.registerButton.Size = new System.Drawing.Size(74, 36);
+            this.registerButton.Size = new System.Drawing.Size(71, 36);
             this.registerButton.TabIndex = 4;
-            this.registerButton.Text = "Register";
+            this.registerButton.Text = "Kayıt Ol";
             this.registerButton.UseVisualStyleBackColor = true;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
@@ -115,23 +115,23 @@
             this.labelRegister.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRegister.Location = new System.Drawing.Point(37, 83);
             this.labelRegister.Name = "labelRegister";
-            this.labelRegister.Size = new System.Drawing.Size(144, 42);
+            this.labelRegister.Size = new System.Drawing.Size(138, 42);
             this.labelRegister.TabIndex = 5;
-            this.labelRegister.Text = "Register";
+            this.labelRegister.Text = "Kayıt Ol";
             // 
             // cancelButton
             // 
             this.cancelButton.AutoSize = true;
             this.cancelButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.cancelButton.Depth = 0;
-            this.cancelButton.Location = new System.Drawing.Point(85, 408);
+            this.cancelButton.Location = new System.Drawing.Point(44, 408);
             this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.cancelButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Primary = false;
-            this.cancelButton.Size = new System.Drawing.Size(64, 36);
+            this.cancelButton.Size = new System.Drawing.Size(42, 36);
             this.cancelButton.TabIndex = 6;
-            this.cancelButton.Text = "Cancel";
+            this.cancelButton.Text = "Geri";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
@@ -148,7 +148,7 @@
             this.Controls.Add(this.textboxName);
             this.Controls.Add(this.textboxEmail);
             this.Name = "Register";
-            this.Text = "Register";
+            this.Text = "Kütüphane Yönetim Sistemi";
             this.ResumeLayout(false);
             this.PerformLayout();
 
