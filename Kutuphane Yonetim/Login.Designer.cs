@@ -25,9 +25,10 @@
         private void InitializeComponent() {
             this.textboxUsername = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.textboxPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.pictureBoxBG = new System.Windows.Forms.PictureBox();
             this.loginButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.labelTitle = new System.Windows.Forms.Label();
+            this.registerButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.pictureBoxBG = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBG)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,19 +67,10 @@
             this.textboxPassword.UseSystemPasswordChar = false;
             this.textboxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textboxPassword_KeyDown);
             // 
-            // pictureBoxBG
-            // 
-            this.pictureBoxBG.Location = new System.Drawing.Point(-46, 63);
-            this.pictureBoxBG.Name = "pictureBoxBG";
-            this.pictureBoxBG.Size = new System.Drawing.Size(583, 425);
-            this.pictureBoxBG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxBG.TabIndex = 4;
-            this.pictureBoxBG.TabStop = false;
-            // 
             // loginButton
             // 
             this.loginButton.Depth = 0;
-            this.loginButton.Location = new System.Drawing.Point(210, 271);
+            this.loginButton.Location = new System.Drawing.Point(266, 271);
             this.loginButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.loginButton.Name = "loginButton";
             this.loginButton.Primary = true;
@@ -98,11 +90,34 @@
             this.labelTitle.Text = "Library Management System";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // registerButton
+            // 
+            this.registerButton.Depth = 0;
+            this.registerButton.Location = new System.Drawing.Point(154, 271);
+            this.registerButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.registerButton.Name = "registerButton";
+            this.registerButton.Primary = true;
+            this.registerButton.Size = new System.Drawing.Size(75, 23);
+            this.registerButton.TabIndex = 5;
+            this.registerButton.Text = "Register";
+            this.registerButton.UseVisualStyleBackColor = true;
+            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
+            // 
+            // pictureBoxBG
+            // 
+            this.pictureBoxBG.Location = new System.Drawing.Point(-46, 63);
+            this.pictureBoxBG.Name = "pictureBoxBG";
+            this.pictureBoxBG.Size = new System.Drawing.Size(583, 425);
+            this.pictureBoxBG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBG.TabIndex = 4;
+            this.pictureBoxBG.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(494, 435);
+            this.Controls.Add(this.registerButton);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.textboxPassword);
@@ -125,6 +140,7 @@
         private System.Windows.Forms.PictureBox pictureBoxBG;
         private MaterialSkin.Controls.MaterialRaisedButton loginButton;
         private System.Windows.Forms.Label labelTitle;
+        private MaterialSkin.Controls.MaterialRaisedButton registerButton;
     }
 }
 

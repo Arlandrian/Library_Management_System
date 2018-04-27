@@ -12,6 +12,11 @@ using Npgsql;
 
 namespace Kutuphane_Yonetim {
     public partial class Login : MaterialForm {
+        MaterialSkin.ColorScheme colorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Amber600, MaterialSkin.Primary.Grey800, MaterialSkin.Primary.Blue700, MaterialSkin.Accent.Cyan400, MaterialSkin.TextShade.WHITE);
+        MaterialSkin.MaterialSkinManager skinManager;
+
+        Insan currentInsan;
+
         public Login() {
             InitializeComponent();
             labelTitle.AutoSize = false;
@@ -38,12 +43,11 @@ namespace Kutuphane_Yonetim {
             }
             pictureBoxBG.Image = pic;
         }
+        public void SetColor() {
 
-        private void SetColor() {
-
-            MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
+            skinManager = MaterialSkin.MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
-            skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Amber600, MaterialSkin.Primary.Grey800, MaterialSkin.Primary.Blue700, MaterialSkin.Accent.Cyan400, MaterialSkin.TextShade.WHITE);
+            skinManager.ColorScheme = colorScheme;
         }
 
         #endregion
@@ -61,5 +65,12 @@ namespace Kutuphane_Yonetim {
             }
         }
         #endregion
+
+        private void registerButton_Click(object sender, EventArgs e) {
+            Register registerForm = new Register(this);
+            this.Hide();
+            registerForm.Show();
+            
+        }
     }
 }
