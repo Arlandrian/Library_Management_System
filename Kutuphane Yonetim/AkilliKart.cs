@@ -18,5 +18,23 @@ namespace Kutuphane_Yonetim
             this.id = id;
         }
 
+        public void setBakiye(float bakiye)
+        {
+            if (bakiye < 0)
+            {
+                //YETERSİZ BAKİYE
+            }
+            else
+            {
+                this.bakiye = bakiye;
+            }
+            
+        }
+
+        public float getBakiye()
+        {
+            return bakiye;
+        }
+
     }
 }

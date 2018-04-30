@@ -11,11 +11,22 @@ namespace Kutuphane_Yonetim
 
         private static int kitapSiniri = 3;// default : 3 kitap
         private static int oduncSuresi = 30;// default : 30 gün 
-
+        
 
         public Ogrenci(string id, string ad, string soyad, AkilliKart kart, string eposta, string password) : base(id, ad, soyad, kart, eposta,password)
-        {        
+        {
+            
+        }
 
+        public void setKitapSiniri(int newSinir)
+        {
+            kitapSiniri = newSinir;
+        }
+
+
+        public void increaseMevcutKitapSayisi()
+        {
+            this.setMevcutKitapSayisi(this.getMevcutKitapSayisi() + 1);
         }
 
     }

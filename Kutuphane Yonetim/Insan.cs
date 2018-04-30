@@ -15,6 +15,7 @@ namespace Kutuphane_Yonetim
         private AkilliKart kart;
         private string eposta;
         private string password;
+        private int mevcutKitapSayisi;
 
         public Insan(string id,string ad,string soyad,AkilliKart kart,string eposta, string password)
         {
@@ -26,5 +27,26 @@ namespace Kutuphane_Yonetim
             this.password = password;
         }
 
+        public int getMevcutKitapSayisi()
+        {
+            return mevcutKitapSayisi;
+        }
+        public void setMevcutKitapSayisi(int mevcutKitapSayisi)
+        {
+            this.mevcutKitapSayisi = mevcutKitapSayisi;
+        }
+
+        //public int süreKontrol();
+
+        public void iadeEt()  //başarı durumuna göre int döndürülebilir? ( 1-başarılı 0-başarısız)
+        {
+            
+            if (süreKontol()) // süre geçerli ise 1 değil ise 0 döndürür
+            {
+                kart.setBakiye(kart.getBakiye() - 1);
+            }
+        }
+
     }
+
 }
