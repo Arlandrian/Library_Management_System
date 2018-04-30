@@ -50,6 +50,47 @@ namespace Kutuphane_Yonetim {
             
         }
 
+        void GetAllItemsWithCategory(string categoryName) {
+            try {
+                string connString = ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString;
+
+                NpgsqlConnection connection = new NpgsqlConnection(connString);
+                connection.Open();
+                //Urun urun;
+                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM urun WHERE tip = '"+ categoryName+"'", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                for (int i = 0; reader.Read(); i++) {
+                    //urun = new Urun(reader[0].ToString(), reader[1].ToString(), int.Parse(reader[3].ToString()), int.Parse(reader[2].ToString()), int.Parse(reader[4].ToString()),reader[5].ToString());
+                    ListViewItem item = new ListViewItem(reader[0].ToString());//id
+                    item.SubItems.Add(reader[1].ToString());//isim
+                    item.SubItems.Add(reader[2].ToString());//toplam Adet
+                    item.SubItems.Add(reader[3].ToString());//anlık Adet
+                    item.SubItems.Add(reader[4].ToString());//rezerve
+                    item.SubItems.Add(reader[5].ToString());//tip
+                    listViewProducts.Items.Add(item);
+                }
+                reader.Close();
+                connection.Close();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message.ToString());
+            }
+
+        }
+
+        
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
+            //listBox1.SelectedItem.ToString();
+        }
+
+        private void listViewProducts_SelectedIndexChanged(object sender, EventArgs e) {
+
+
+
+            //listViewProducts.SelectedItems[0].SubItems[0].Text;//seçilen ilk itemin ilk sütununun text i
+        }
+
+        #region Done
         private void backButton_Click(object sender, EventArgs e) {
             loginForm.Show();
             this.Close();
@@ -58,9 +99,7 @@ namespace Kutuphane_Yonetim {
         private void AdminPage_FormClosing(object sender, FormClosingEventArgs e) {
             loginForm.Show();
         }
+        #endregion
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
-            //listBox1.SelectedItem
-        }
     }
 }
