@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Kutuphane_Yonetim
 {
-    class Dvd : Urun
+    public class Dvd : Urun
     {
-        public Dvd(string id, string ad, int anlikAdet, int toplamAdet, int rezerveAdet) : base(id, ad, anlikAdet, toplamAdet, rezerveAdet)
+        public Dvd(string id, string ad, int anlikAdet, int toplamAdet, int rezerveAdet,string tip) : base(id, ad, anlikAdet, toplamAdet, rezerveAdet,tip)
         {
 
         }

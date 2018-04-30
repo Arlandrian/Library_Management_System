@@ -29,6 +29,7 @@
             this.labelTitle = new System.Windows.Forms.Label();
             this.registerButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.pictureBoxBG = new System.Windows.Forms.PictureBox();
+            this.checkboxRemeberMe = new MaterialSkin.Controls.MaterialCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBG)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,10 +84,10 @@
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Font = new System.Drawing.Font("Tahoma", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.Location = new System.Drawing.Point(38, 92);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(93, 37);
+            this.labelTitle.Size = new System.Drawing.Size(99, 42);
             this.labelTitle.TabIndex = 3;
             this.labelTitle.Text = "Giriş";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,11 +114,29 @@
             this.pictureBoxBG.TabIndex = 4;
             this.pictureBoxBG.TabStop = false;
             // 
+            // checkboxRemeberMe
+            // 
+            this.checkboxRemeberMe.AutoSize = true;
+            this.checkboxRemeberMe.Depth = 0;
+            this.checkboxRemeberMe.Font = new System.Drawing.Font("Roboto", 10F);
+            this.checkboxRemeberMe.Location = new System.Drawing.Point(196, 316);
+            this.checkboxRemeberMe.Margin = new System.Windows.Forms.Padding(0);
+            this.checkboxRemeberMe.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.checkboxRemeberMe.MouseState = MaterialSkin.MouseState.HOVER;
+            this.checkboxRemeberMe.Name = "checkboxRemeberMe";
+            this.checkboxRemeberMe.Ripple = true;
+            this.checkboxRemeberMe.Size = new System.Drawing.Size(102, 30);
+            this.checkboxRemeberMe.TabIndex = 6;
+            this.checkboxRemeberMe.Text = "Beni Hatırla";
+            this.checkboxRemeberMe.UseVisualStyleBackColor = true;
+            this.checkboxRemeberMe.CheckedChanged += new System.EventHandler(this.checkboxRemeberMe_CheckedChanged);
+            // 
             // Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(494, 435);
+            this.Controls.Add(this.checkboxRemeberMe);
             this.Controls.Add(this.registerButton);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.loginButton);
@@ -143,6 +162,7 @@
         private MaterialSkin.Controls.MaterialRaisedButton loginButton;
         private System.Windows.Forms.Label labelTitle;
         private MaterialSkin.Controls.MaterialRaisedButton registerButton;
+        private MaterialSkin.Controls.MaterialCheckBox checkboxRemeberMe;
     }
 }
 

@@ -30,11 +30,10 @@ namespace Kutuphane_Yonetim {
             skinManager.ColorScheme = colorScheme;
         }
 
-        private void cancelButton_Click(object sender, EventArgs e) {
+        private void backButton_Click(object sender, EventArgs e) {
             loginForm.SetColor();
             loginForm.Show();
             this.Close();
-
         }
 
 
@@ -92,5 +91,9 @@ namespace Kutuphane_Yonetim {
             }
         }
 
+        private void Register_FormClosing(object sender, FormClosingEventArgs e) {
+            loginForm.SetColor();
+            loginForm.Show();
+        }
     }
 }

@@ -29,7 +29,7 @@
             this.textboxPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.registerButton = new MaterialSkin.Controls.MaterialFlatButton();
             this.labelRegister = new System.Windows.Forms.Label();
-            this.cancelButton = new MaterialSkin.Controls.MaterialFlatButton();
+            this.backButton = new MaterialSkin.Controls.MaterialFlatButton();
             this.SuspendLayout();
             // 
             // textboxEmail
@@ -119,28 +119,28 @@
             this.labelRegister.TabIndex = 5;
             this.labelRegister.Text = "Kayıt Ol";
             // 
-            // cancelButton
+            // backButton
             // 
-            this.cancelButton.AutoSize = true;
-            this.cancelButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.cancelButton.Depth = 0;
-            this.cancelButton.Location = new System.Drawing.Point(44, 408);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.cancelButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Primary = false;
-            this.cancelButton.Size = new System.Drawing.Size(42, 36);
-            this.cancelButton.TabIndex = 6;
-            this.cancelButton.Text = "Geri";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.backButton.AutoSize = true;
+            this.backButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.backButton.Depth = 0;
+            this.backButton.Location = new System.Drawing.Point(44, 408);
+            this.backButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.backButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.backButton.Name = "backButton";
+            this.backButton.Primary = false;
+            this.backButton.Size = new System.Drawing.Size(42, 36);
+            this.backButton.TabIndex = 6;
+            this.backButton.Text = "Geri";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(418, 527);
-            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.labelRegister);
             this.Controls.Add(this.registerButton);
             this.Controls.Add(this.textboxPassword);
@@ -149,6 +149,7 @@
             this.Controls.Add(this.textboxEmail);
             this.Name = "Register";
             this.Text = "Kütüphane Yönetim Sistemi";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Register_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,6 +163,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField textboxPassword;
         private MaterialSkin.Controls.MaterialFlatButton registerButton;
         private System.Windows.Forms.Label labelRegister;
-        private MaterialSkin.Controls.MaterialFlatButton cancelButton;
+        private MaterialSkin.Controls.MaterialFlatButton backButton;
     }
 }

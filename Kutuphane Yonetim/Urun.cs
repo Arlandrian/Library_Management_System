@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kutuphane_Yonetim
 {
-    class Urun
+    public class Urun
     {
 
         private string id;
@@ -14,14 +14,16 @@ namespace Kutuphane_Yonetim
         private int anlikAdet;
         private int toplamAdet;
         private int rezerveAdet;
+        private string tip;
 
-        public Urun(string id, string ad, int anlikAdet, int toplamAdet, int rezerveAdet)
+        public Urun(string id, string ad, int anlikAdet, int toplamAdet, int rezerveAdet,string tip)
         {
             this.id = id;
             this.ad = ad;
             this.toplamAdet = toplamAdet;
             this.anlikAdet = anlikAdet;//BAŞLANGIÇTA toplamAdet'e eşitlenebilir
             this.rezerveAdet = rezerveAdet;//BAŞLANGIÇTA 0'a eşitlenebilir
+            this.tip = tip;
         }
         
 

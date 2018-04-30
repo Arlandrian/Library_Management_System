@@ -10,22 +10,41 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Npgsql;
 using System.Configuration;
+using System.Collections;
 
 namespace Kutuphane_Yonetim {
     public partial class Login : MaterialForm {
         MaterialSkin.ColorScheme colorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Amber600, MaterialSkin.Primary.Grey800, MaterialSkin.Primary.Blue700, MaterialSkin.Accent.Cyan400, MaterialSkin.TextShade.WHITE);
         MaterialSkin.MaterialSkinManager skinManager;
 
+        private string adminUserName = "admin";
+        private string adminPassword = "admin";
+
+
         public Insan aktifKullanici;
 
         public Login() {
             InitializeComponent();
-            labelTitle.AutoSize = false;
-            labelTitle.Font = new System.Drawing.Font("Roboto", 18f,FontStyle.Bold);
+            labelTitle.AutoSize = true;
+            labelTitle.Font = new System.Drawing.Font("Roboto", 19f,FontStyle.Bold);
+#if !DEBUG
+            textboxUsername.Text = adminUserName;
+            textboxPassword.Text = adminPassword;
+#endif      
 
+            RememberMe();
             SetColor();
             //SetBackgroundPicture(210,0);
             //pictureBoxBG.Visible = false;
+        }
+
+
+        void RememberMe() {
+            if (Properties.Settings.Default.rememberMe) {
+                textboxUsername.Text = Properties.Settings.Default.username;
+                textboxPassword.Text = Properties.Settings.Default.password;
+                checkboxRemeberMe.Checked = true;
+            }
         }
         bool IsNumeric(string str) {
             for (int i = 0; i < str.Length; i++) {
@@ -36,9 +55,17 @@ namespace Kutuphane_Yonetim {
             return true;
         }
         private void loginButton_Click_1(object sender, EventArgs e) {
+
+
             if(string.IsNullOrEmpty(textboxPassword.Text) || string.IsNullOrEmpty(textboxUsername.Text)) {
                 return;
-            }
+            } else if(textboxPassword.Text == adminPassword && textboxUsername.Text == adminUserName){
+                AdminPage adminPage = new AdminPage(this);
+                adminPage.Show();
+                this.Hide();
+                CheckRememberMeState();
+                return;
+            } 
 
             try {
 
@@ -66,6 +93,7 @@ namespace Kutuphane_Yonetim {
                         string eposta = reader[4].ToString();
                         aktifKullanici = new Insan(id, ad, soyad, kart, eposta, password);
                         MessageBox.Show("Basarili bir sekilde giris yapildi");
+                        CheckRememberMeState();
 
                     } else {
                         MessageBox.Show("Lütfen bilgilerinizi kontrol ediniz");
@@ -124,6 +152,23 @@ namespace Kutuphane_Yonetim {
             this.Hide();
             registerForm.Show();
             
+        }
+
+        private void checkboxRemeberMe_CheckedChanged(object sender, EventArgs e) {
+            CheckRememberMeState();
+        }
+
+        private void CheckRememberMeState() {
+            if (checkboxRemeberMe.CheckState == CheckState.Checked) {
+                Properties.Settings.Default.rememberMe = true;
+                Properties.Settings.Default.username = textboxUsername.Text;
+                Properties.Settings.Default.password = textboxPassword.Text;
+            } else {
+                Properties.Settings.Default.rememberMe = false;
+                Properties.Settings.Default.username = string.Empty;
+                Properties.Settings.Default.password = string.Empty;
+            }
+            Properties.Settings.Default.Save();
         }
     }
 }
