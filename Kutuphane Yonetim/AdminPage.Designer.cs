@@ -49,23 +49,23 @@
             this.comboboxCategory = new System.Windows.Forms.ComboBox();
             this.buttonAdd = new MetroFramework.Controls.MetroButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtOgrenciKitap = new MetroFramework.Controls.MetroTextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtOgrenciSure = new MetroFramework.Controls.MetroTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtOgrenciKitap = new MetroFramework.Controls.MetroTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtOgretimSure = new MetroFramework.Controls.MetroTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtOgretimKitap = new MetroFramework.Controls.MetroTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtMemurSure = new MetroFramework.Controls.MetroTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtMemurKitap = new MetroFramework.Controls.MetroTextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -426,46 +426,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Öğrenci";
             // 
-            // txtOgrenciKitap
+            // label11
             // 
-            // 
-            // 
-            // 
-            this.txtOgrenciKitap.CustomButton.Image = null;
-            this.txtOgrenciKitap.CustomButton.Location = new System.Drawing.Point(69, 1);
-            this.txtOgrenciKitap.CustomButton.Name = "";
-            this.txtOgrenciKitap.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtOgrenciKitap.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtOgrenciKitap.CustomButton.TabIndex = 1;
-            this.txtOgrenciKitap.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtOgrenciKitap.CustomButton.UseSelectable = true;
-            this.txtOgrenciKitap.CustomButton.Visible = false;
-            this.txtOgrenciKitap.Lines = new string[0];
-            this.txtOgrenciKitap.Location = new System.Drawing.Point(140, 19);
-            this.txtOgrenciKitap.MaxLength = 32767;
-            this.txtOgrenciKitap.Name = "txtOgrenciKitap";
-            this.txtOgrenciKitap.PasswordChar = '\0';
-            this.txtOgrenciKitap.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtOgrenciKitap.SelectedText = "";
-            this.txtOgrenciKitap.SelectionLength = 0;
-            this.txtOgrenciKitap.SelectionStart = 0;
-            this.txtOgrenciKitap.ShortcutsEnabled = true;
-            this.txtOgrenciKitap.Size = new System.Drawing.Size(91, 23);
-            this.txtOgrenciKitap.TabIndex = 15;
-            this.txtOgrenciKitap.UseSelectable = true;
-            this.txtOgrenciKitap.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtOgrenciKitap.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(21, 20);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 22);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "Kitap Sınırı:";
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(201, 51);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(37, 22);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "Gün";
             // 
             // label6
             // 
@@ -508,6 +478,47 @@
             this.txtOgrenciSure.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtOgrenciSure.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(21, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(95, 22);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Kitap Sınırı:";
+            // 
+            // txtOgrenciKitap
+            // 
+            // 
+            // 
+            // 
+            this.txtOgrenciKitap.CustomButton.Image = null;
+            this.txtOgrenciKitap.CustomButton.Location = new System.Drawing.Point(69, 1);
+            this.txtOgrenciKitap.CustomButton.Name = "";
+            this.txtOgrenciKitap.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtOgrenciKitap.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtOgrenciKitap.CustomButton.TabIndex = 1;
+            this.txtOgrenciKitap.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtOgrenciKitap.CustomButton.UseSelectable = true;
+            this.txtOgrenciKitap.CustomButton.Visible = false;
+            this.txtOgrenciKitap.Lines = new string[0];
+            this.txtOgrenciKitap.Location = new System.Drawing.Point(140, 19);
+            this.txtOgrenciKitap.MaxLength = 32767;
+            this.txtOgrenciKitap.Name = "txtOgrenciKitap";
+            this.txtOgrenciKitap.PasswordChar = '\0';
+            this.txtOgrenciKitap.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtOgrenciKitap.SelectedText = "";
+            this.txtOgrenciKitap.SelectionLength = 0;
+            this.txtOgrenciKitap.SelectionStart = 0;
+            this.txtOgrenciKitap.ShortcutsEnabled = true;
+            this.txtOgrenciKitap.Size = new System.Drawing.Size(91, 23);
+            this.txtOgrenciKitap.TabIndex = 15;
+            this.txtOgrenciKitap.UseSelectable = true;
+            this.txtOgrenciKitap.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtOgrenciKitap.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label12);
@@ -521,6 +532,17 @@
             this.groupBox2.TabIndex = 26;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Öğretim Üyesi";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(201, 51);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(37, 22);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "Gün";
             // 
             // label7
             // 
@@ -618,6 +640,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Memur";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(201, 51);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(37, 22);
+            this.label13.TabIndex = 28;
+            this.label13.Text = "Gün";
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -700,39 +733,6 @@
             this.txtMemurKitap.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtMemurKitap.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(201, 51);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(37, 22);
-            this.label11.TabIndex = 26;
-            this.label11.Text = "Gün";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(201, 51);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 22);
-            this.label12.TabIndex = 27;
-            this.label12.Text = "Gün";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(201, 51);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(37, 22);
-            this.label13.TabIndex = 28;
-            this.label13.Text = "Gün";
-            // 
             // materialRaisedButton1
             // 
             this.materialRaisedButton1.Depth = 0;
@@ -750,7 +750,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 667);
+            this.ClientSize = new System.Drawing.Size(1011, 675);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);

@@ -22,6 +22,8 @@ namespace Kutuphane_Yonetim {
             GetAllItems();
         }
 
+        #region GetItems
+
         void GetAllItems() {
             try {
                 string connString = ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString;
@@ -103,6 +105,8 @@ namespace Kutuphane_Yonetim {
 
         }
 
+        #endregion
+
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
             listViewProducts.Items.Clear();
             string cat = listBox1.SelectedItem.ToString();
@@ -123,8 +127,6 @@ namespace Kutuphane_Yonetim {
                 textboxAnlıkAdet.Text = item.SubItems[3].Text;
                 textboxRezerveAdet.Text = item.SubItems[4].Text;
             }
-
-
         }
 
         #region Done
@@ -201,7 +203,7 @@ namespace Kutuphane_Yonetim {
                 GetAllItemsWithCategory(listBox1.SelectedItem.ToString());
             }
         }
-        bool istxtsEnabled = true;
+
         private void materialRaisedButton1_Click(object sender, EventArgs e) {
             setSinirsFromTextBox();
         }
