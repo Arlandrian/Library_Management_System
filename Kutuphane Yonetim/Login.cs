@@ -121,7 +121,7 @@ namespace Kutuphane_Yonetim {
                         }
 
 
-                        aktifKullanici = new Insan(id, ad, soyad, kart, eposta, password);
+                        //ktifKullanici = new Insan(id, ad, soyad, kart, eposta, password);
                         MessageBox.Show("Basarili bir sekilde giris yapildi");
                         CheckRememberMeState();
                         UserPage userPage = new UserPage(this, aktifKullanici);

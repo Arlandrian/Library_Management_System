@@ -72,7 +72,7 @@ namespace Kutuphane_Yonetim {
                 int kartID = int.Parse(reader[0].ToString());
                 reader.Close();
 
-                NpgsqlCommand command3 = new NpgsqlCommand("INSERT INTO kisi (eposta,pass,ad,soyad,ak_id) VALUES( '" + (textboxEmail.Text) + "','" + (textboxPassword.Text) + "','" + (textboxName.Text) + "','" + (textboxLastname.Text)+"',"+kartID.ToString()+");",connection);
+                NpgsqlCommand command3 = new NpgsqlCommand("INSERT INTO kisi (eposta,pass,ad,soyad,ak_id,tip) VALUES( '" + (textboxEmail.Text) + "','" + (textboxPassword.Text) + "','" + (textboxName.Text) + "','" + (textboxLastname.Text)+"',"+kartID.ToString()+","+comboBox1.SelectedIndex+");",connection);
                 command3.ExecuteNonQuery();
 
                 NpgsqlCommand command4 = new NpgsqlCommand("SELECT MAX(id) FROM kisi", connection);
@@ -95,5 +95,7 @@ namespace Kutuphane_Yonetim {
             loginForm.SetColor();
             loginForm.Show();
         }
+
+        
     }
 }

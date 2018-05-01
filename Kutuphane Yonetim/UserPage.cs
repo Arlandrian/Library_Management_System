@@ -15,26 +15,44 @@ namespace Kutuphane_Yonetim {
     public partial class UserPage : MetroFramework.Forms.MetroForm {
         Insan aktifKullanici;
         Login loginForm;
+        bool isOgretimGorevlisi = true;
+        private event Action<ListViewItem> OnListViewUpdate;
+
         public UserPage(Login loginForm,Insan aktifKullanici) {
             this.loginForm = loginForm;
             InitializeComponent();
             this.aktifKullanici = aktifKullanici;
-            labelWelcome.Text += aktifKullanici.ad + " " + aktifKullanici.soyad + " " + aktifKullanici.GetType().BaseType;
+            if (aktifKullanici.GetType() != typeof(OgretimUyesi)) {
+                listBox1.Items.RemoveAt(2);
+                isOgretimGorevlisi = false;
+            }
+            labelWelcome.Text += aktifKullanici.ad + " " + aktifKullanici.soyad + " " + aktifKullanici.GetType().Name;
             labelBakiye.Text += aktifKullanici.kart.getBakiye().ToString() + " TL"; 
             GetAllItems();
-
+            
         }
 
         private void UserPage_Load(object sender, EventArgs e) {
 
         }
 
-        private void UserPage_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            loginForm.Show();
+        private void UserPage_FormClosing(object sender, FormClosingEventArgs e) {
+            if(!exit)
+                Application.Exit();
+            //loginForm.Show();
         }
 
         #region GetItems
+
+        void listViewChanged() {
+            if (aktifKullanici.GetType() != typeof(OgretimUyesi))
+
+                for (int i = 0; i < listViewProducts.Items.Count; i++) {
+                    if (listViewProducts.Items[i].SubItems[5].Text == "DersKitabı") {
+                        listViewProducts.Items.RemoveAt(i);
+                    }
+                }
+        }
 
         void GetAllItems() {
             try {
@@ -42,17 +60,21 @@ namespace Kutuphane_Yonetim {
 
                 NpgsqlConnection connection = new NpgsqlConnection(connString);
                 connection.Open();
-                //Urun urun;
-                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM urun", connection);
+                NpgsqlCommand command;
+                if (isOgretimGorevlisi) {
+                    command = new NpgsqlCommand("SELECT * FROM urun", connection);
+                } else {
+                    command = new NpgsqlCommand("SELECT * FROM urun WHERE tip != 'DersKitabi'", connection);
+                }
                 NpgsqlDataReader reader = command.ExecuteReader();
                 for (int i = 0; reader.Read(); i++) {
-                    //urun = new Urun(reader[0].ToString(), reader[1].ToString(), int.Parse(reader[3].ToString()), int.Parse(reader[2].ToString()), int.Parse(reader[4].ToString()),reader[5].ToString());
                     ListViewItem item = new ListViewItem(reader[0].ToString());//id
                     item.SubItems.Add(reader[1].ToString());//isim
                     item.SubItems.Add(reader[2].ToString());//toplam Adet
                     item.SubItems.Add(reader[3].ToString());//anlık Adet
                     item.SubItems.Add(reader[4].ToString());//rezerve
                     item.SubItems.Add(reader[5].ToString());//tip
+                    
                     listViewProducts.Items.Add(item);
                 }
                 reader.Close();
@@ -73,7 +95,6 @@ namespace Kutuphane_Yonetim {
                 NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM urun WHERE tip = '" + categoryName + "'", connection);
                 NpgsqlDataReader reader = command.ExecuteReader();
                 for (int i = 0; reader.Read(); i++) {
-                    //urun = new Urun(reader[0].ToString(), reader[1].ToString(), int.Parse(reader[3].ToString()), int.Parse(reader[2].ToString()), int.Parse(reader[4].ToString()),reader[5].ToString());
                     ListViewItem item = new ListViewItem(reader[0].ToString());//id
                     item.SubItems.Add(reader[1].ToString());//isim
                     item.SubItems.Add(reader[2].ToString());//toplam Adet
@@ -96,8 +117,12 @@ namespace Kutuphane_Yonetim {
 
                 NpgsqlConnection connection = new NpgsqlConnection(connString);
                 connection.Open();
-                //Urun urun;
-                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM urun WHERE lower(ad) LIKE '%" + productName + "%'", connection);
+                NpgsqlCommand command;
+                if (isOgretimGorevlisi) {
+                    command = new NpgsqlCommand("SELECT * FROM urun WHERE lower(ad) LIKE '%" + productName + "%'", connection);
+                } else {
+                    command = new NpgsqlCommand("SELECT * FROM urun WHERE tip != 'DersKitabi' AND lower(ad) LIKE '%" + productName + "%'", connection);
+                }
                 NpgsqlDataReader reader = command.ExecuteReader();
                 for (int i = 0; reader.Read(); i++) {
                     //urun = new Urun(reader[0].ToString(), reader[1].ToString(), int.Parse(reader[3].ToString()), int.Parse(reader[2].ToString()), int.Parse(reader[4].ToString()),reader[5].ToString());
@@ -108,6 +133,7 @@ namespace Kutuphane_Yonetim {
                     item.SubItems.Add(reader[4].ToString());//rezerve
                     item.SubItems.Add(reader[5].ToString());//tip
                     listViewProducts.Items.Add(item);
+
                 }
                 reader.Close();
                 connection.Close();
@@ -116,7 +142,30 @@ namespace Kutuphane_Yonetim {
             }
 
         }
+        
+        void GetAllUserItems() {
+            try {
+                string connString = ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString;
 
+                NpgsqlConnection connection = new NpgsqlConnection(connString);
+                connection.Open();
+                NpgsqlCommand command;
+                
+                command = new NpgsqlCommand("select urun.ad,urun.tip,kisi_urun.tarih from kisi_urun ,urun WHERE kisi_id = "+aktifKullanici.id+" AND urun.id = urun_id", connection);
+                
+                NpgsqlDataReader reader = command.ExecuteReader();
+                for (int i = 0; reader.Read(); i++) {
+                    ListViewItem item = new ListViewItem(reader[0].ToString());//isim
+                    item.SubItems.Add(reader[1].ToString());//tip
+                    item.SubItems.Add(reader[2].ToString());//tarih
+                    listViewMyBooks.Items.Add(item);
+                }
+                reader.Close();
+                connection.Close();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
         #endregion
         //category changed
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
@@ -132,5 +181,20 @@ namespace Kutuphane_Yonetim {
         private void UserPage_Load_1(object sender, EventArgs e) {
 
         }
+        bool exit = false;
+        private void pictureBoxExit_Click(object sender, EventArgs e) {
+            
+            loginForm.Show();
+            exit = true;
+            this.Close();
+        }
+
+        private void textboxSearch_KeyDown(object sender, KeyEventArgs e) {
+            if(e.KeyCode == Keys.Enter) {
+                listViewProducts.Items.Clear();
+                GetAllItemsWithName(textboxSearch.Text);
+            }
+        }
+
     }
 }

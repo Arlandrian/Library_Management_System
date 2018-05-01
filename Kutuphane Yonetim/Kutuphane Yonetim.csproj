@@ -177,6 +177,7 @@
     <Content Include="obj\Debug\Kutuphane Yonetim.pdb" />
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
     <None Include="Resources\button_kiosk.png" />
+    <Content Include="Resources\logout_512x512.png" />
     <Content Include="Resources\register.png" />
     <Content Include="Scripts\LICENSE.txt" />
     <Content Include="Scripts\polymer-micro.html" />

@@ -30,6 +30,7 @@
             this.registerButton = new MaterialSkin.Controls.MaterialFlatButton();
             this.labelRegister = new System.Windows.Forms.Label();
             this.backButton = new MaterialSkin.Controls.MaterialFlatButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // textboxEmail
@@ -51,7 +52,7 @@
             // 
             this.textboxName.Depth = 0;
             this.textboxName.Hint = "İsim";
-            this.textboxName.Location = new System.Drawing.Point(44, 222);
+            this.textboxName.Location = new System.Drawing.Point(44, 217);
             this.textboxName.MouseState = MaterialSkin.MouseState.HOVER;
             this.textboxName.Name = "textboxName";
             this.textboxName.PasswordChar = '\0';
@@ -66,7 +67,7 @@
             // 
             this.textboxLastname.Depth = 0;
             this.textboxLastname.Hint = "Soyisim";
-            this.textboxLastname.Location = new System.Drawing.Point(44, 285);
+            this.textboxLastname.Location = new System.Drawing.Point(44, 275);
             this.textboxLastname.MouseState = MaterialSkin.MouseState.HOVER;
             this.textboxLastname.Name = "textboxLastname";
             this.textboxLastname.PasswordChar = '\0';
@@ -81,7 +82,7 @@
             // 
             this.textboxPassword.Depth = 0;
             this.textboxPassword.Hint = "Şifre";
-            this.textboxPassword.Location = new System.Drawing.Point(44, 348);
+            this.textboxPassword.Location = new System.Drawing.Point(44, 333);
             this.textboxPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.textboxPassword.Name = "textboxPassword";
             this.textboxPassword.PasswordChar = '*';
@@ -97,7 +98,7 @@
             this.registerButton.AutoSize = true;
             this.registerButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.registerButton.Depth = 0;
-            this.registerButton.Location = new System.Drawing.Point(174, 408);
+            this.registerButton.Location = new System.Drawing.Point(169, 458);
             this.registerButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.registerButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.registerButton.Name = "registerButton";
@@ -124,7 +125,7 @@
             this.backButton.AutoSize = true;
             this.backButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.backButton.Depth = 0;
-            this.backButton.Location = new System.Drawing.Point(44, 408);
+            this.backButton.Location = new System.Drawing.Point(89, 458);
             this.backButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.backButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.backButton.Name = "backButton";
@@ -135,11 +136,25 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Öğrenci",
+            "Öğretim Görevlisi",
+            "Memur"});
+            this.comboBox1.Location = new System.Drawing.Point(44, 391);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(315, 21);
+            this.comboBox1.TabIndex = 7;
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(418, 527);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.labelRegister);
             this.Controls.Add(this.registerButton);
@@ -165,5 +180,6 @@
         private MaterialSkin.Controls.MaterialFlatButton registerButton;
         private System.Windows.Forms.Label labelRegister;
         private MaterialSkin.Controls.MaterialFlatButton backButton;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
