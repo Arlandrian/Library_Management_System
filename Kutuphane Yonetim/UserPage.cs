@@ -29,7 +29,9 @@ namespace Kutuphane_Yonetim {
             labelWelcome.Text += aktifKullanici.ad + " " + aktifKullanici.soyad + " " + aktifKullanici.GetType().Name;
             labelBakiye.Text += aktifKullanici.kart.getBakiye().ToString() + " TL"; 
             GetAllItems();
-            
+            GetAllUserItems();
+
+
         }
 
         private void UserPage_Load(object sender, EventArgs e) {
@@ -155,9 +157,10 @@ namespace Kutuphane_Yonetim {
                 
                 NpgsqlDataReader reader = command.ExecuteReader();
                 for (int i = 0; reader.Read(); i++) {
-                    ListViewItem item = new ListViewItem(reader[0].ToString());//isim
+                    ListViewItem item = new ListViewItem(reader[0].ToString());
+                    //item.SubItems.Add();//isim
                     item.SubItems.Add(reader[1].ToString());//tip
-                    item.SubItems.Add(reader[2].ToString());//tarih
+                    item.SubItems.Add(DateTime.Parse(reader[2].ToString()).ToString("yyyy-MM-dd"));//tarih
                     listViewMyBooks.Items.Add(item);
                 }
                 reader.Close();
@@ -166,6 +169,7 @@ namespace Kutuphane_Yonetim {
                 MessageBox.Show(ex.Message.ToString());
             }
         }
+
         #endregion
         //category changed
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
@@ -196,5 +200,12 @@ namespace Kutuphane_Yonetim {
             }
         }
 
+        private void buttonReturn_Click(object sender, EventArgs e) {
+
+        }
+
+        void ReturnBook(ListViewItem item) {
+
+        }
     }
 }

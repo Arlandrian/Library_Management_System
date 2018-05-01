@@ -47,6 +47,11 @@ namespace Kutuphane_Yonetim
             }*/
         }
 
+        public bool SinirlariKontrolEt() {
+            
+            return true;
+        }
+
     }
 
 }
