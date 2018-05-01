@@ -83,7 +83,7 @@ namespace Kutuphane_Yonetim {
                 NpgsqlConnection connection = new NpgsqlConnection(connString);
                 connection.Open();
                 //Urun urun;
-                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM urun WHERE ad LIKE '%" + productName + "%'", connection);
+                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM urun WHERE lower(ad) LIKE '%" + productName + "%'", connection);
                 NpgsqlDataReader reader = command.ExecuteReader();
                 for (int i = 0; reader.Read(); i++) {
                     //urun = new Urun(reader[0].ToString(), reader[1].ToString(), int.Parse(reader[3].ToString()), int.Parse(reader[2].ToString()), int.Parse(reader[4].ToString()),reader[5].ToString());
@@ -257,5 +257,6 @@ namespace Kutuphane_Yonetim {
             Ogrenci.oduncSuresi = int.Parse(txtOgrenciSure.Text);
 
         }
+
     }
 }

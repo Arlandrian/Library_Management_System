@@ -146,6 +146,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.MinimizeBox = false;
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kütüphane Yönetim Sistemi";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBG)).EndInit();

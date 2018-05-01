@@ -773,6 +773,7 @@
             this.Controls.Add(this.textboxSearch);
             this.Controls.Add(this.listViewProducts);
             this.Name = "AdminPage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminPage";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminPage_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
