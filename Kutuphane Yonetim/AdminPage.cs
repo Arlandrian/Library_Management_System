@@ -1,4 +1,4 @@
-﻿using MaterialSkin.Controls;
+﻿//using MaterialSkin.Controls;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -10,14 +10,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MetroFramework.Forms;
 namespace Kutuphane_Yonetim {
-    public partial class AdminPage : MaterialForm {
+    public partial class AdminPage : MetroForm {
         Login loginForm;
 
         public AdminPage(Login login) {
             InitializeComponent();
             loginForm = login;
+            
             getSinirsToTextBox();
             GetAllItems();
         }
@@ -106,7 +107,7 @@ namespace Kutuphane_Yonetim {
         }
 
         #endregion
-
+        //category changed
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
             listViewProducts.Items.Clear();
             string cat = listBox1.SelectedItem.ToString();
@@ -116,7 +117,7 @@ namespace Kutuphane_Yonetim {
                 GetAllItemsWithCategory(cat);
             }
         }
-
+        
         private void listViewProducts_SelectedIndexChanged(object sender, EventArgs e) {
 
             if(listViewProducts.SelectedItems.Count == 1) {
@@ -128,23 +129,14 @@ namespace Kutuphane_Yonetim {
                 textboxRezerveAdet.Text = item.SubItems[4].Text;
             }
         }
-
+        
         #region Done
-        private void backButton_Click(object sender, EventArgs e) {
-            loginForm.Show();
-            this.Close();
-        }
 
         private void AdminPage_FormClosing(object sender, FormClosingEventArgs e) {
             loginForm.Show();
         }
         #endregion
 
-        private void buttonUpdate_Click(object sender, EventArgs e) {
-            if(listViewProducts.SelectedItems.Count == 1) {
-                UpdateItem(listViewProducts.SelectedItems[0]);
-            }
-        }
 
         private void UpdateItem(ListViewItem item) {
             try {
@@ -204,7 +196,7 @@ namespace Kutuphane_Yonetim {
             }
         }
 
-        private void materialRaisedButton1_Click(object sender, EventArgs e) {
+        private void updateSinirs_Click(object sender, EventArgs e) {
             setSinirsFromTextBox();
         }
 
@@ -259,6 +251,64 @@ namespace Kutuphane_Yonetim {
             Ogrenci.oduncSuresi = int.Parse(txtOgrenciSure.Text);
 
         }
+        
+        void deleteSelectedItems() {
+            if(listViewProducts.SelectedItems != null) {
+                try {
+                    string connString = ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString;
+                    NpgsqlConnection connection = new NpgsqlConnection(connString);
+                    connection.Open();
+                    string items = string.Empty;
+                    for (int i = 0; i < listViewProducts.SelectedItems.Count; i++) {
+                        if (i != listViewProducts.SelectedItems.Count - 1) {
+                            items += " id=" + listViewProducts.SelectedItems[i].SubItems[0].Text + " OR ";
+                        } else {
+                            items += " id=" + listViewProducts.SelectedItems[i].SubItems[0].Text;
+                        }
+                    }
+                    for (int i = 0; i < listViewProducts.SelectedItems.Count; i++) {
+                        listViewProducts.Items.Remove(listViewProducts.SelectedItems[i]);
+                    }
+                    listViewProducts.Update();
+
+                    NpgsqlCommand command = new NpgsqlCommand("DELETE FROM urun WHERE "+items, connection);
+                    command.ExecuteNonQuery();
+
+                    connection.Close();
+                } catch (Exception ex) {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+            } else {
+                MessageBox.Show("Lütfen silmek istediğiniz ürünleri seçin.");
+            }
+            
+        }
+
+        private void backButton_Click_1(object sender, EventArgs e) {
+            loginForm.Show();
+            this.Close();
+        }
+
+        private void materialRaisedButton1_Click_1(object sender, EventArgs e) {
+            if (listViewProducts.SelectedItems.Count == 1) {
+                UpdateItem(listViewProducts.SelectedItems[0]);
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e) {
+            deleteSelectedItems();
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e) {
+            if (listViewProducts.SelectedItems.Count == 1)
+                UpdateItem(listViewProducts.SelectedItems[0]);
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e) {
+            listViewProducts.Items.Clear();
+            GetAllItemsWithName(textboxSearch.Text);
+        }
+
 
     }
 }

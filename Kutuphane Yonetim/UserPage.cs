@@ -9,10 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Kutuphane_Yonetim
-{
-    public partial class UserPage : MaterialForm
-    {
+namespace Kutuphane_Yonetim {
+    public partial class UserPage : MetroFramework.Forms.MetroForm {
 
         Login loginForm;
         public UserPage(Login loginForm)
@@ -36,9 +34,5 @@ namespace Kutuphane_Yonetim
 
         }
 
-        private void UserPage_Load_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

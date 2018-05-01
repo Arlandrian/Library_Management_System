@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.listViewProducts = new MetroFramework.Controls.MetroListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.isim = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -38,7 +37,6 @@
             this.tip = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textboxSearch = new MetroFramework.Controls.MetroTextBox();
             this.backButton = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.categoroiesLabel = new MaterialSkin.Controls.MaterialLabel();
             this.labelCategory = new System.Windows.Forms.Label();
@@ -52,7 +50,6 @@
             this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonUpdate = new MetroFramework.Controls.MetroButton();
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // listViewProducts
@@ -150,10 +147,6 @@
             this.backButton.TabIndex = 2;
             this.backButton.Text = "Back";
             this.backButton.UseVisualStyleBackColor = true;
-            // 
-            // metroStyleManager1
-            // 
-            this.metroStyleManager1.Owner = null;
             // 
             // listBox1
             // 
@@ -420,8 +413,6 @@
             this.Name = "UserPage";
             this.Text = "UserPage";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserPage_FormClosing);
-            this.Load += new System.EventHandler(this.UserPage_Load_1);
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -438,7 +429,6 @@
         private MetroFramework.Controls.MetroTextBox textboxSearch;
         private System.Windows.Forms.ColumnHeader tip;
         private MaterialSkin.Controls.MaterialRaisedButton backButton;
-        private MetroFramework.Components.MetroStyleManager metroStyleManager1;
         private System.Windows.Forms.ListBox listBox1;
         private MaterialSkin.Controls.MaterialLabel categoroiesLabel;
         private System.Windows.Forms.Label labelCategory;

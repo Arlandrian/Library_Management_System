@@ -65,10 +65,15 @@ namespace Kutuphane_Yonetim {
                 this.Hide();
                 CheckRememberMeState();
                 return;
-            } 
+            } else if (textboxPassword.Text == "0") {
+                TestForm testForm = new TestForm();
+                this.Hide();
+                testForm.Show();
+                CheckRememberMeState();
+                return;
+            }
 
             try {
-
 
                 string connString = ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString;
                 NpgsqlConnection connection = new NpgsqlConnection(connString);
@@ -94,8 +99,10 @@ namespace Kutuphane_Yonetim {
                         aktifKullanici = new Insan(id, ad, soyad, kart, eposta, password);
                         MessageBox.Show("Basarili bir sekilde giris yapildi");
                         CheckRememberMeState();
-
-                    } else {
+                        UserPage userPage = new UserPage(this);
+                        Hide();
+                        userPage.Show();
+                    }else{
                         MessageBox.Show("Lütfen bilgilerinizi kontrol ediniz");
 
                     }
