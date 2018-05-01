@@ -155,6 +155,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Scripts\bower.json" />
+    <None Include="Scripts\build.log" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -174,7 +176,12 @@
     <Content Include="obj\Debug\Kutuphane Yonetim.exe" />
     <Content Include="obj\Debug\Kutuphane Yonetim.pdb" />
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <None Include="Resources\button_kiosk.png" />
     <Content Include="Resources\register.png" />
+    <Content Include="Scripts\LICENSE.txt" />
+    <Content Include="Scripts\polymer-micro.html" />
+    <Content Include="Scripts\polymer-mini.html" />
+    <Content Include="Scripts\polymer.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />

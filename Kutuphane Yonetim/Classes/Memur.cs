@@ -13,11 +13,9 @@ namespace Kutuphane_Yonetim
         public static int oduncSuresi=6;
         
 
-        public Memur(string id, string ad, string soyad, AkilliKart kart, string eposta,string password, int kitapSiniri, int oduncSuresi) : base(id, ad, soyad, kart, eposta,password)
+        public Memur(string id, string ad, string soyad, AkilliKart kart, string eposta,string password) : base(id, ad, soyad, kart, eposta,password)
         {
             
-            //this.kitapSiniri = kitapSiniri;
-            //this.oduncSuresi = oduncSuresi;
         }
 
         public void setKitapSiniri(int newSinir) {

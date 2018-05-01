@@ -28,8 +28,10 @@
             this.loginButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.labelTitle = new System.Windows.Forms.Label();
             this.registerButton = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.pictureBoxBG = new System.Windows.Forms.PictureBox();
             this.checkboxRemeberMe = new MaterialSkin.Controls.MaterialCheckBox();
+            this.buttonKiosk = new System.Windows.Forms.PictureBox();
+            this.pictureBoxBG = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonKiosk)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBG)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,20 +107,11 @@
             this.registerButton.UseVisualStyleBackColor = true;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
-            // pictureBoxBG
-            // 
-            this.pictureBoxBG.Location = new System.Drawing.Point(-46, 63);
-            this.pictureBoxBG.Name = "pictureBoxBG";
-            this.pictureBoxBG.Size = new System.Drawing.Size(583, 425);
-            this.pictureBoxBG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxBG.TabIndex = 4;
-            this.pictureBoxBG.TabStop = false;
-            // 
             // checkboxRemeberMe
             // 
             this.checkboxRemeberMe.AutoSize = true;
             this.checkboxRemeberMe.Depth = 0;
-            this.checkboxRemeberMe.Font = new System.Drawing.Font("Roboto", 10F);
+            this.checkboxRemeberMe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.checkboxRemeberMe.Location = new System.Drawing.Point(196, 316);
             this.checkboxRemeberMe.Margin = new System.Windows.Forms.Padding(0);
             this.checkboxRemeberMe.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -131,11 +124,32 @@
             this.checkboxRemeberMe.UseVisualStyleBackColor = true;
             this.checkboxRemeberMe.CheckedChanged += new System.EventHandler(this.checkboxRemeberMe_CheckedChanged);
             // 
+            // buttonKiosk
+            // 
+            this.buttonKiosk.Image = global::Kutuphane_Yonetim.Properties.Resources.button_kiosk;
+            this.buttonKiosk.Location = new System.Drawing.Point(191, 366);
+            this.buttonKiosk.Name = "buttonKiosk";
+            this.buttonKiosk.Size = new System.Drawing.Size(112, 35);
+            this.buttonKiosk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.buttonKiosk.TabIndex = 9;
+            this.buttonKiosk.TabStop = false;
+            this.buttonKiosk.Click += new System.EventHandler(this.buttonKiosk_Click);
+            // 
+            // pictureBoxBG
+            // 
+            this.pictureBoxBG.Location = new System.Drawing.Point(-46, 63);
+            this.pictureBoxBG.Name = "pictureBoxBG";
+            this.pictureBoxBG.Size = new System.Drawing.Size(583, 425);
+            this.pictureBoxBG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBG.TabIndex = 4;
+            this.pictureBoxBG.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(494, 435);
+            this.Controls.Add(this.buttonKiosk);
             this.Controls.Add(this.checkboxRemeberMe);
             this.Controls.Add(this.registerButton);
             this.Controls.Add(this.labelTitle);
@@ -149,6 +163,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kütüphane Yönetim Sistemi";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.buttonKiosk)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -164,6 +179,7 @@
         private System.Windows.Forms.Label labelTitle;
         private MaterialSkin.Controls.MaterialRaisedButton registerButton;
         private MaterialSkin.Controls.MaterialCheckBox checkboxRemeberMe;
+        private System.Windows.Forms.PictureBox buttonKiosk;
     }
 }
 

@@ -78,15 +78,24 @@ namespace Kutuphane_Yonetim {
                 string connString = ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString;
                 NpgsqlConnection connection = new NpgsqlConnection(connString);
                 connection.Open();
-                NpgsqlCommand command;
+                NpgsqlCommand command,command2;
+                
                 if (IsNumeric(textboxUsername.Text)) {//ak_id
                     command = new NpgsqlCommand("SELECT * FROM kisi WHERE ak_id = " + textboxUsername.Text, connection);
+                    command2 = new NpgsqlCommand("SELECT bakiye FROM akillikart,kisi WHERE akillikart.id = kisi.id AND ak_id=" + textboxUsername.Text, connection);
+                    
                 } else {//eposta
                     command = new NpgsqlCommand("SELECT * FROM kisi WHERE eposta = '" + textboxUsername.Text + "'", connection);
+                    command2 = new NpgsqlCommand("SELECT bakiye FROM akillikart,kisi WHERE akillikart.id = kisi.id AND eposta = '" + textboxUsername.Text + "'", connection);
                 }
-
-                NpgsqlDataReader reader = command.ExecuteReader();
+                NpgsqlDataReader reader = command2.ExecuteReader();
                 reader.Read();
+                float bakiye = float.Parse(reader[0].ToString());
+                reader.Close();
+
+                reader = command.ExecuteReader();
+                reader.Read();
+
                 if (reader[0] != null) {
                     string password = reader[5].ToString();
 
@@ -94,12 +103,28 @@ namespace Kutuphane_Yonetim {
                         string id = reader[0].ToString();
                         string ad = reader[1].ToString();
                         string soyad = reader[2].ToString();
-                        AkilliKart kart = new AkilliKart(0, reader[3].ToString());
+                        AkilliKart kart = new AkilliKart(bakiye, reader[3].ToString());
                         string eposta = reader[4].ToString();
+                        int tip = int.Parse(reader[6].ToString());
+                        switch (tip) {
+                            case 0://ogrenci
+                                aktifKullanici = new Ogrenci(id, ad, soyad, kart, eposta, password);
+                                break;
+                            case 1://ogretim gorevlisi
+                                aktifKullanici = new OgretimUyesi(id, ad, soyad, kart, eposta, password);
+                                break;
+                            case 2://memur
+                                aktifKullanici = new Memur(id, ad, soyad, kart, eposta, password);
+                                break;
+                            default:
+                                throw new Exception("Böyle bir tip yok");
+                        }
+
+
                         aktifKullanici = new Insan(id, ad, soyad, kart, eposta, password);
                         MessageBox.Show("Basarili bir sekilde giris yapildi");
                         CheckRememberMeState();
-                        UserPage userPage = new UserPage(this);
+                        UserPage userPage = new UserPage(this, aktifKullanici);
                         Hide();
                         userPage.Show();
                     }else{
@@ -200,6 +225,10 @@ namespace Kutuphane_Yonetim {
                 Properties.Settings.Default.password = string.Empty;
             }
             Properties.Settings.Default.Save();
+        }
+
+        private void buttonKiosk_Click(object sender, EventArgs e) {
+
         }
     }
 }

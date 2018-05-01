@@ -36,7 +36,6 @@
             this.rezerve = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tip = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textboxSearch = new MetroFramework.Controls.MetroTextBox();
-            this.backButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.categoroiesLabel = new MaterialSkin.Controls.MaterialLabel();
             this.labelCategory = new System.Windows.Forms.Label();
@@ -50,6 +49,8 @@
             this.metroTextBox4 = new MetroFramework.Controls.MetroTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonUpdate = new MetroFramework.Controls.MetroButton();
+            this.labelWelcome = new MaterialSkin.Controls.MaterialLabel();
+            this.labelBakiye = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // listViewProducts
@@ -63,11 +64,12 @@
             this.tip});
             this.listViewProducts.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.listViewProducts.FullRowSelect = true;
+            this.listViewProducts.GridLines = true;
             this.listViewProducts.Location = new System.Drawing.Point(154, 121);
             this.listViewProducts.Name = "listViewProducts";
             this.listViewProducts.OwnerDraw = true;
             this.listViewProducts.Size = new System.Drawing.Size(604, 488);
-            this.listViewProducts.Style = MetroFramework.MetroColorStyle.Orange;
+            this.listViewProducts.Style = MetroFramework.MetroColorStyle.Green;
             this.listViewProducts.TabIndex = 0;
             this.listViewProducts.UseCompatibleStateImageBehavior = false;
             this.listViewProducts.UseSelectable = true;
@@ -136,18 +138,6 @@
             this.textboxSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.textboxSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // backButton
-            // 
-            this.backButton.Depth = 0;
-            this.backButton.Location = new System.Drawing.Point(38, 559);
-            this.backButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.backButton.Name = "backButton";
-            this.backButton.Primary = true;
-            this.backButton.Size = new System.Drawing.Size(75, 23);
-            this.backButton.TabIndex = 2;
-            this.backButton.Text = "Back";
-            this.backButton.UseVisualStyleBackColor = true;
-            // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
@@ -173,7 +163,6 @@
             this.categoroiesLabel.Size = new System.Drawing.Size(82, 19);
             this.categoroiesLabel.TabIndex = 4;
             this.categoroiesLabel.Text = "Kategoriler";
-            this.categoroiesLabel.Click += new System.EventHandler(this.categoroiesLabel_Click);
             // 
             // labelCategory
             // 
@@ -382,18 +371,46 @@
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(827, 360);
+            this.buttonUpdate.Location = new System.Drawing.Point(791, 366);
             this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(128, 23);
+            this.buttonUpdate.Size = new System.Drawing.Size(113, 23);
             this.buttonUpdate.TabIndex = 19;
             this.buttonUpdate.Text = "Rezervasyon Yap";
             this.buttonUpdate.UseSelectable = true;
+            // 
+            // labelWelcome
+            // 
+            this.labelWelcome.AutoSize = true;
+            this.labelWelcome.Depth = 0;
+            this.labelWelcome.Font = new System.Drawing.Font("Roboto", 11F);
+            this.labelWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelWelcome.Location = new System.Drawing.Point(7, 57);
+            this.labelWelcome.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelWelcome.Name = "labelWelcome";
+            this.labelWelcome.Size = new System.Drawing.Size(87, 19);
+            this.labelWelcome.TabIndex = 20;
+            this.labelWelcome.Text = "Hoş Geldin ";
+            // 
+            // labelBakiye
+            // 
+            this.labelBakiye.AutoSize = true;
+            this.labelBakiye.Depth = 0;
+            this.labelBakiye.Font = new System.Drawing.Font("Roboto", 11F);
+            this.labelBakiye.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.labelBakiye.Location = new System.Drawing.Point(884, 57);
+            this.labelBakiye.MouseState = MaterialSkin.MouseState.HOVER;
+            this.labelBakiye.Name = "labelBakiye";
+            this.labelBakiye.Size = new System.Drawing.Size(65, 19);
+            this.labelBakiye.TabIndex = 21;
+            this.labelBakiye.Text = "Bakiye : ";
             // 
             // UserPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1029, 621);
+            this.Controls.Add(this.labelBakiye);
+            this.Controls.Add(this.labelWelcome);
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.metroTextBox4);
             this.Controls.Add(this.label4);
@@ -407,12 +424,13 @@
             this.Controls.Add(this.labelCategory);
             this.Controls.Add(this.categoroiesLabel);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.backButton);
             this.Controls.Add(this.textboxSearch);
             this.Controls.Add(this.listViewProducts);
             this.Name = "UserPage";
+            this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "UserPage";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserPage_FormClosing);
+            this.Load += new System.EventHandler(this.UserPage_Load_1);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,7 +446,6 @@
         private System.Windows.Forms.ColumnHeader rezerve;
         private MetroFramework.Controls.MetroTextBox textboxSearch;
         private System.Windows.Forms.ColumnHeader tip;
-        private MaterialSkin.Controls.MaterialRaisedButton backButton;
         private System.Windows.Forms.ListBox listBox1;
         private MaterialSkin.Controls.MaterialLabel categoroiesLabel;
         private System.Windows.Forms.Label labelCategory;
@@ -442,5 +459,7 @@
         private MetroFramework.Controls.MetroTextBox metroTextBox4;
         private System.Windows.Forms.Label label4;
         private MetroFramework.Controls.MetroButton buttonUpdate;
+        private MaterialSkin.Controls.MaterialLabel labelWelcome;
+        private MaterialSkin.Controls.MaterialLabel labelBakiye;
     }
 }

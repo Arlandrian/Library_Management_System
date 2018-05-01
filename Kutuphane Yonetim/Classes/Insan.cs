@@ -9,13 +9,13 @@ namespace Kutuphane_Yonetim
     public class Insan
     {
 
-        private string id;
-        private string ad;
-        private string soyad;
-        private AkilliKart kart;
-        private string eposta;
-        private string password;
-        private int mevcutKitapSayisi;
+        public string id;
+        public string ad;
+        public string soyad;
+        public AkilliKart kart;
+        public string eposta;
+        public string password;
+        public int mevcutKitapSayisi;
 
         public Insan(string id,string ad,string soyad,AkilliKart kart,string eposta, string password)
         {
