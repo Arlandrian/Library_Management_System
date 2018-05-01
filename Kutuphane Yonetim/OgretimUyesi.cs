@@ -9,8 +9,8 @@ namespace Kutuphane_Yonetim
     class OgretimUyesi : Insan
     {
 
-        private static int kitapSiniri = 6;// default : 6 kitap
-        private static int oduncSuresi = 90;// default : 90 gün 
+        public static int kitapSiniri = 6;// default : 6 kitap
+        public static int oduncSuresi = 90;// default : 90 gün 
         
 
         public OgretimUyesi(string id, string ad, string soyad, AkilliKart kart, string eposta, string password) : base(id, ad, soyad, kart, eposta, password)

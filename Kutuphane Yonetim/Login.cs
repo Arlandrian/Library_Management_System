@@ -31,7 +31,7 @@ namespace Kutuphane_Yonetim {
             textboxUsername.Text = adminUserName;
             textboxPassword.Text = adminPassword;
 #endif      
-
+            getSinirsFromDB();
             RememberMe();
             SetColor();
             //SetBackgroundPicture(210,0);
@@ -109,6 +109,30 @@ namespace Kutuphane_Yonetim {
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message.ToString());
                 
+            }
+        }
+
+        private void getSinirsFromDB() {
+
+            try {
+                string connString = ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString;
+                NpgsqlConnection connection = new NpgsqlConnection(connString);
+                connection.Open();
+                NpgsqlCommand command = new NpgsqlCommand("SELECT * FROM sinir", connection);
+                NpgsqlDataReader reader = command.ExecuteReader();
+                reader.Read();
+
+                Ogrenci.kitapSiniri = int.Parse(reader[0].ToString());
+                OgretimUyesi.kitapSiniri = int.Parse(reader[1].ToString());
+                Memur.kitapSiniri = int.Parse(reader[2].ToString());
+
+                Ogrenci.oduncSuresi = int.Parse(reader[3].ToString());
+                OgretimUyesi.oduncSuresi = int.Parse(reader[4].ToString());
+                Memur.oduncSuresi = int.Parse(reader[5].ToString());
+                reader.Close();
+                connection.Close();
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message.ToString());
             }
         }
 

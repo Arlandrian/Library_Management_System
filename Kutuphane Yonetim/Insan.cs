@@ -40,11 +40,11 @@ namespace Kutuphane_Yonetim
 
         public void iadeEt()  //başarı durumuna göre int döndürülebilir? ( 1-başarılı 0-başarısız)
         {
-            
+            /*
             if (süreKontol()) // süre geçerli ise 1 değil ise 0 döndürür
             {
                 kart.setBakiye(kart.getBakiye() - 1);
-            }
+            }*/
         }
 
     }

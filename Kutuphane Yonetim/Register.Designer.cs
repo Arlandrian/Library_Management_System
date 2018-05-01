@@ -148,6 +148,7 @@
             this.Controls.Add(this.textboxName);
             this.Controls.Add(this.textboxEmail);
             this.Name = "Register";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kütüphane Yönetim Sistemi";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Register_FormClosing);
             this.ResumeLayout(false);
