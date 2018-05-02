@@ -30,7 +30,7 @@ namespace Kutuphane_Yonetim {
             labelBakiye.Text += aktifKullanici.kart.getBakiye().ToString() + " TL"; 
             GetAllItems();
             GetAllUserItems();
-
+            setPersonalInfoTextBox(aktifKullanici);
 
         }
 
@@ -201,11 +201,52 @@ namespace Kutuphane_Yonetim {
         }
 
         private void buttonReturn_Click(object sender, EventArgs e) {
-
+            
         }
 
         void ReturnBook(ListViewItem item) {
 
         }
+
+
+        #region PersonalInfo
+        void setPersonalInfoTextBox(Insan kisi) {
+            txtName.Text = kisi.ad;
+            txtSurname.Text = kisi.soyad;
+            txtEmail.Text = kisi.eposta;
+            txtPass.Text = kisi.password;
+        }
+        void setAktifKullaniciFromTextBox(Insan kisi) {
+            kisi.ad = txtName.Text;
+            kisi.soyad = txtSurname.Text;
+            kisi.eposta = txtEmail.Text;
+            kisi.password = txtPass.Text;
+        }
+
+        void getAndSetPersonalInfo() {
+            try {
+                string connString = ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString;
+
+                NpgsqlConnection connection = new NpgsqlConnection(connString);
+                connection.Open();
+                NpgsqlCommand command;
+                string values = "'"+txtName.Text+"','"+ txtSurname.Text + "','"+ txtEmail.Text + "','"+txtPass.Text+"'";
+                command = new NpgsqlCommand("UPDATE kisi SET (ad,soyad,eposta,pass) = ("+values+") WHERE id ="+aktifKullanici.id, connection);
+
+                command.ExecuteNonQuery();
+                setAktifKullaniciFromTextBox(aktifKullanici);
+
+                connection.Close();
+                MessageBox.Show("Bilgileriniz başarılı bir şekilde güncellenmiştir.");
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void buttonUpdateInfos_Click(object sender, EventArgs e) {
+            getAndSetPersonalInfo();
+        }
+
+    #endregion
     }
 }
