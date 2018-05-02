@@ -111,7 +111,7 @@
             // 
             this.checkboxRemeberMe.AutoSize = true;
             this.checkboxRemeberMe.Depth = 0;
-            this.checkboxRemeberMe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.checkboxRemeberMe.Font = new System.Drawing.Font("Roboto", 10F);
             this.checkboxRemeberMe.Location = new System.Drawing.Point(196, 316);
             this.checkboxRemeberMe.Margin = new System.Windows.Forms.Padding(0);
             this.checkboxRemeberMe.MouseLocation = new System.Drawing.Point(-1, -1);

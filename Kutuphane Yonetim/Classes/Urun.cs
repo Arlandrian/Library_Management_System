@@ -9,12 +9,12 @@ namespace Kutuphane_Yonetim
     public class Urun
     {
 
-        private string id;
-        private string ad;
-        private int anlikAdet;
-        private int toplamAdet;
-        private int rezerveAdet;
-        private string tip;
+        public string id;
+        public string ad;
+        public int anlikAdet;
+        public int toplamAdet;
+        public int rezerveAdet;
+        public string tip;
 
         public Urun(string id, string ad, int anlikAdet, int toplamAdet, int rezerveAdet,string tip)
         {

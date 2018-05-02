@@ -122,7 +122,7 @@ namespace Kutuphane_Yonetim {
 
 
                         //ktifKullanici = new Insan(id, ad, soyad, kart, eposta, password);
-                        MessageBox.Show("Basarili bir sekilde giris yapildi");
+                        //MessageBox.Show("Basarili bir sekilde giris yapildi");
                         CheckRememberMeState();
                         UserPage userPage = new UserPage(this, aktifKullanici);
                         Hide();
@@ -228,7 +228,10 @@ namespace Kutuphane_Yonetim {
         }
 
         private void buttonKiosk_Click(object sender, EventArgs e) {
-
+            KioskPage kiosk = new KioskPage(this);
+            kiosk.Show();
+            this.Hide();
         }
+
     }
 }

@@ -33,8 +33,8 @@
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.labelType = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
-            this.buttonUpdate = new MetroFramework.Controls.MetroButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonRezervation = new MetroFramework.Controls.MetroButton();
             this.labelCategory = new System.Windows.Forms.Label();
             this.categoroiesLabel = new MaterialSkin.Controls.MaterialLabel();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -64,6 +64,8 @@
             this.labelKisiName = new MetroFramework.Controls.MetroLabel();
             this.labelBakiye = new MaterialSkin.Controls.MaterialLabel();
             this.labelWelcome = new MaterialSkin.Controls.MaterialLabel();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonCancelRez = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).BeginInit();
             this.metroTabControl.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
@@ -89,7 +91,7 @@
             this.metroTabControl.Controls.Add(this.metroTabPage3);
             this.metroTabControl.Location = new System.Drawing.Point(9, 63);
             this.metroTabControl.Name = "metroTabControl";
-            this.metroTabControl.SelectedIndex = 2;
+            this.metroTabControl.SelectedIndex = 1;
             this.metroTabControl.Size = new System.Drawing.Size(1009, 628);
             this.metroTabControl.TabIndex = 23;
             this.metroTabControl.UseSelectable = true;
@@ -98,8 +100,8 @@
             // 
             this.metroTabPage1.Controls.Add(this.labelType);
             this.metroTabPage1.Controls.Add(this.labelName);
-            this.metroTabPage1.Controls.Add(this.buttonUpdate);
             this.metroTabPage1.Controls.Add(this.label1);
+            this.metroTabPage1.Controls.Add(this.buttonRezervation);
             this.metroTabPage1.Controls.Add(this.labelCategory);
             this.metroTabPage1.Controls.Add(this.categoroiesLabel);
             this.metroTabPage1.Controls.Add(this.listBox1);
@@ -122,47 +124,50 @@
             this.labelType.AutoSize = true;
             this.labelType.BackColor = System.Drawing.Color.Transparent;
             this.labelType.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelType.Location = new System.Drawing.Point(848, 128);
+            this.labelType.Location = new System.Drawing.Point(859, 129);
             this.labelType.Name = "labelType";
-            this.labelType.Size = new System.Drawing.Size(0, 22);
+            this.labelType.Size = new System.Drawing.Size(16, 22);
             this.labelType.TabIndex = 38;
+            this.labelType.Text = "-";
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
             this.labelName.BackColor = System.Drawing.Color.Transparent;
             this.labelName.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName.Location = new System.Drawing.Point(848, 81);
+            this.labelName.Location = new System.Drawing.Point(857, 81);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(0, 22);
+            this.labelName.Size = new System.Drawing.Size(16, 22);
             this.labelName.TabIndex = 37;
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Location = new System.Drawing.Point(814, 183);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(113, 23);
-            this.buttonUpdate.TabIndex = 36;
-            this.buttonUpdate.Text = "Rezervasyon Yap";
-            this.buttonUpdate.UseSelectable = true;
+            this.labelName.Text = "-";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(761, 128);
+            this.label1.Location = new System.Drawing.Point(771, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 22);
             this.label1.TabIndex = 28;
             this.label1.Text = "Ürün Tipi:";
+            // 
+            // buttonRezervation
+            // 
+            this.buttonRezervation.Location = new System.Drawing.Point(814, 183);
+            this.buttonRezervation.Name = "buttonRezervation";
+            this.buttonRezervation.Size = new System.Drawing.Size(113, 23);
+            this.buttonRezervation.TabIndex = 36;
+            this.buttonRezervation.Text = "Rezervasyon Yap";
+            this.buttonRezervation.UseSelectable = true;
+            this.buttonRezervation.Click += new System.EventHandler(this.buttonRezervation_Click);
             // 
             // labelCategory
             // 
             this.labelCategory.AutoSize = true;
             this.labelCategory.BackColor = System.Drawing.Color.Transparent;
             this.labelCategory.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCategory.Location = new System.Drawing.Point(761, 81);
+            this.labelCategory.Location = new System.Drawing.Point(770, 81);
             this.labelCategory.Name = "labelCategory";
             this.labelCategory.Size = new System.Drawing.Size(81, 22);
             this.labelCategory.TabIndex = 26;
@@ -172,12 +177,12 @@
             // 
             this.categoroiesLabel.AutoSize = true;
             this.categoroiesLabel.Depth = 0;
-            this.categoroiesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.categoroiesLabel.Font = new System.Drawing.Font("Roboto", 11F);
             this.categoroiesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.categoroiesLabel.Location = new System.Drawing.Point(8, 81);
             this.categoroiesLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.categoroiesLabel.Name = "categoroiesLabel";
-            this.categoroiesLabel.Size = new System.Drawing.Size(79, 18);
+            this.categoroiesLabel.Size = new System.Drawing.Size(82, 19);
             this.categoroiesLabel.TabIndex = 25;
             this.categoroiesLabel.Text = "Kategoriler";
             // 
@@ -240,6 +245,7 @@
             this.listViewProducts.FullRowSelect = true;
             this.listViewProducts.GridLines = true;
             this.listViewProducts.Location = new System.Drawing.Point(151, 81);
+            this.listViewProducts.MultiSelect = false;
             this.listViewProducts.Name = "listViewProducts";
             this.listViewProducts.OwnerDraw = true;
             this.listViewProducts.Size = new System.Drawing.Size(604, 488);
@@ -248,6 +254,7 @@
             this.listViewProducts.UseCompatibleStateImageBehavior = false;
             this.listViewProducts.UseSelectable = true;
             this.listViewProducts.View = System.Windows.Forms.View.Details;
+            this.listViewProducts.SelectedIndexChanged += new System.EventHandler(this.listViewProducts_SelectedIndexChanged);
             // 
             // ID
             // 
@@ -282,6 +289,7 @@
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.Controls.Add(this.buttonCancelRez);
             this.metroTabPage2.Controls.Add(this.buttonReturn);
             this.metroTabPage2.Controls.Add(this.listViewMyBooks);
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
@@ -298,7 +306,7 @@
             // 
             // buttonReturn
             // 
-            this.buttonReturn.Location = new System.Drawing.Point(666, 247);
+            this.buttonReturn.Location = new System.Drawing.Point(692, 174);
             this.buttonReturn.Name = "buttonReturn";
             this.buttonReturn.Size = new System.Drawing.Size(97, 32);
             this.buttonReturn.TabIndex = 3;
@@ -311,33 +319,35 @@
             this.listViewMyBooks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader4});
             this.listViewMyBooks.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.listViewMyBooks.FullRowSelect = true;
             this.listViewMyBooks.GridLines = true;
             this.listViewMyBooks.Location = new System.Drawing.Point(31, 32);
             this.listViewMyBooks.Name = "listViewMyBooks";
             this.listViewMyBooks.OwnerDraw = true;
-            this.listViewMyBooks.Size = new System.Drawing.Size(519, 513);
+            this.listViewMyBooks.Size = new System.Drawing.Size(589, 513);
             this.listViewMyBooks.TabIndex = 2;
             this.listViewMyBooks.UseCompatibleStateImageBehavior = false;
             this.listViewMyBooks.UseSelectable = true;
             this.listViewMyBooks.View = System.Windows.Forms.View.Details;
+            this.listViewMyBooks.SelectedIndexChanged += new System.EventHandler(this.listViewMyBooks_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "İsim";
-            this.columnHeader1.Width = 180;
+            this.columnHeader1.Width = 176;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Tip";
-            this.columnHeader2.Width = 156;
+            this.columnHeader2.Width = 131;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Tarih";
-            this.columnHeader3.Width = 170;
+            this.columnHeader3.Width = 130;
             // 
             // metroTabPage3
             // 
@@ -555,6 +565,21 @@
             this.labelWelcome.Text = "Hoş Geldin ";
             this.labelWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Rezervasyon Mu";
+            this.columnHeader4.Width = 124;
+            // 
+            // buttonCancelRez
+            // 
+            this.buttonCancelRez.Location = new System.Drawing.Point(692, 106);
+            this.buttonCancelRez.Name = "buttonCancelRez";
+            this.buttonCancelRez.Size = new System.Drawing.Size(140, 32);
+            this.buttonCancelRez.TabIndex = 4;
+            this.buttonCancelRez.Text = "Rezervasyonu iptal Et";
+            this.buttonCancelRez.UseSelectable = true;
+            this.buttonCancelRez.Click += new System.EventHandler(this.buttonCancelRez_Click);
+            // 
             // UserPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -568,7 +593,6 @@
             this.Style = MetroFramework.MetroColorStyle.Green;
             this.Text = "UserPage";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserPage_FormClosing);
-            this.Load += new System.EventHandler(this.UserPage_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).EndInit();
             this.metroTabControl.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
@@ -585,7 +609,7 @@
         private System.Windows.Forms.PictureBox pictureBoxExit;
         private MetroFramework.Controls.MetroTabControl metroTabControl;
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
-        private MetroFramework.Controls.MetroButton buttonUpdate;
+        private MetroFramework.Controls.MetroButton buttonRezervation;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelCategory;
         private MaterialSkin.Controls.MaterialLabel categoroiesLabel;
@@ -618,5 +642,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroTextBox txtSurname;
         private MetroFramework.Controls.MetroLabel metroLabel2;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private MetroFramework.Controls.MetroButton buttonCancelRez;
     }
 }

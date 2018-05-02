@@ -77,6 +77,12 @@
     <Compile Include="Classes\Insan.cs" />
     <Compile Include="Classes\Kiosk.cs" />
     <Compile Include="Classes\Kitap.cs" />
+    <Compile Include="KioskPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KioskPage.Designer.cs">
+      <DependentUpon>KioskPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     <Compile Include="Classes\Yonetim.cs" />
     <EmbeddedResource Include="AdminPage.resx">
       <DependentUpon>AdminPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KioskPage.resx">
+      <DependentUpon>KioskPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -177,6 +186,7 @@
     <Content Include="obj\Debug\Kutuphane Yonetim.pdb" />
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
     <None Include="Resources\button_kiosk.png" />
+    <Content Include="Resources\barcode-scanning.gif" />
     <Content Include="Resources\logout_512x512.png" />
     <Content Include="Scripts\LICENSE.txt" />
     <Content Include="Scripts\polymer-micro.html" />

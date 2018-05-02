@@ -63,6 +63,16 @@ namespace Kutuphane_Yonetim.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap barcode_scanning {
+            get {
+                object obj = ResourceManager.GetObject("barcode-scanning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap button_kiosk {
             get {
                 object obj = ResourceManager.GetObject("button_kiosk", resourceCulture);

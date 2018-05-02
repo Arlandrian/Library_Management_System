@@ -16,7 +16,8 @@ namespace Kutuphane_Yonetim {
         Insan aktifKullanici;
         Login loginForm;
         bool isOgretimGorevlisi = true;
-        private event Action<ListViewItem> OnListViewUpdate;
+        //private event Action<ListViewItem> OnListViewUpdate;
+        #region Global
 
         public UserPage(Login loginForm,Insan aktifKullanici) {
             this.loginForm = loginForm;
@@ -43,6 +44,14 @@ namespace Kutuphane_Yonetim {
                 Application.Exit();
             //loginForm.Show();
         }
+        bool exit = false;
+        private void pictureBoxExit_Click(object sender, EventArgs e) {
+
+            loginForm.Show();
+            exit = true;
+            this.Close();
+        }
+        #endregion
 
         #region GetItems
 
@@ -153,7 +162,7 @@ namespace Kutuphane_Yonetim {
                 connection.Open();
                 NpgsqlCommand command;
                 
-                command = new NpgsqlCommand("select urun.ad,urun.tip,kisi_urun.tarih from kisi_urun ,urun WHERE kisi_id = "+aktifKullanici.id+" AND urun.id = urun_id", connection);
+                command = new NpgsqlCommand("select urun.ad,urun.tip,kisi_urun.tarih,kisi_urun.rezerve,urun.id from kisi_urun ,urun WHERE kisi_id = "+aktifKullanici.id+" AND urun.id = urun_id", connection);
                 
                 NpgsqlDataReader reader = command.ExecuteReader();
                 for (int i = 0; reader.Read(); i++) {
@@ -161,6 +170,8 @@ namespace Kutuphane_Yonetim {
                     //item.SubItems.Add();//isim
                     item.SubItems.Add(reader[1].ToString());//tip
                     item.SubItems.Add(DateTime.Parse(reader[2].ToString()).ToString("yyyy-MM-dd"));//tarih
+                    item.SubItems.Add(reader[3].ToString());
+                    item.SubItems.Add(reader[4].ToString());
                     listViewMyBooks.Items.Add(item);
                 }
                 reader.Close();
@@ -171,6 +182,8 @@ namespace Kutuphane_Yonetim {
         }
 
         #endregion
+
+        #region KitapAL
         //category changed
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
             listViewProducts.Items.Clear();
@@ -182,32 +195,89 @@ namespace Kutuphane_Yonetim {
             }
         }
 
-        private void UserPage_Load_1(object sender, EventArgs e) {
-
-        }
-        bool exit = false;
-        private void pictureBoxExit_Click(object sender, EventArgs e) {
-            
-            loginForm.Show();
-            exit = true;
-            this.Close();
-        }
-
         private void textboxSearch_KeyDown(object sender, KeyEventArgs e) {
-            if(e.KeyCode == Keys.Enter) {
+            if (e.KeyCode == Keys.Enter) {
                 listViewProducts.Items.Clear();
                 GetAllItemsWithName(textboxSearch.Text);
             }
         }
 
-        private void buttonReturn_Click(object sender, EventArgs e) {
+        private void listViewProducts_SelectedIndexChanged(object sender, EventArgs e) {
+            int x = listViewProducts.SelectedItems.Count;
+            if (x == 1) {
+                labelName.Text = listViewProducts.SelectedItems[0].SubItems[1].Text;
+                labelType.Text = listViewProducts.SelectedItems[0].SubItems[5].Text;
+            } else if (x == 0) {
+                labelName.Text = "-";
+                labelType.Text = "-";
+            }
+        }
+
+        private void MakeRezervation() {
+            if(listViewProducts.SelectedItems.Count == 1) {
+                try {
+                    string connString = ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString;
+
+                    NpgsqlConnection connection = new NpgsqlConnection(connString);
+                    connection.Open();
+                    NpgsqlCommand command;
+                    command = new NpgsqlCommand("INSERT INTO kisi_urun (kisi_id,urun_id,rezerve) values (" + aktifKullanici.id + "," + listViewProducts.SelectedItems[0].SubItems[0].Text + ",TRUE)", connection);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Rezervasyonunuz başarılı bir şekilde gerçekleşmiştir.");
+
+                } catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                }
+            } else {
+                MessageBox.Show("Lütfen bir kitap seçin");
+            }
+            
             
         }
 
-        void ReturnBook(ListViewItem item) {
-
+        private void buttonRezervation_Click(object sender, EventArgs e) {
+            MakeRezervation();
+            listViewMyBooks.Items.Clear();
+            GetAllUserItems();
         }
 
+        #endregion
+
+        #region AldıgımKitaplar
+
+        private void CancelRezervation() {
+
+            if (listViewMyBooks.SelectedItems.Count == 1) {
+                if(listViewMyBooks.SelectedItems[0].SubItems[3].Text.ToLower() == "false") {
+                    MessageBox.Show("Seçtiginiz Ürün rezervasyon değildir.");
+                    return;
+                }
+                try {
+                    string connString = ConfigurationManager.ConnectionStrings["MyKey"].ConnectionString;
+
+                    NpgsqlConnection connection = new NpgsqlConnection(connString);
+                    connection.Open();
+                    NpgsqlCommand command;
+                    command = new NpgsqlCommand("DELETE FROM kisi_urun WHERE kisi_id = "+aktifKullanici.id+"AND urun_id="+listViewMyBooks.SelectedItems[0].SubItems[4].Text, connection);
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Rezervasyonunuz İptal Edilmiştir.");
+
+                } catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                }
+            } else {
+                MessageBox.Show("Lütfen bir kitap seçin");
+            }
+        }
+
+        private void buttonCancelRez_Click(object sender, EventArgs e) {
+            CancelRezervation();
+            listViewMyBooks.Items.Clear();
+            GetAllUserItems();
+        }
+
+
+        #endregion
 
         #region PersonalInfo
         void setPersonalInfoTextBox(Insan kisi) {
@@ -230,8 +300,8 @@ namespace Kutuphane_Yonetim {
                 NpgsqlConnection connection = new NpgsqlConnection(connString);
                 connection.Open();
                 NpgsqlCommand command;
-                string values = "'"+txtName.Text+"','"+ txtSurname.Text + "','"+ txtEmail.Text + "','"+txtPass.Text+"'";
-                command = new NpgsqlCommand("UPDATE kisi SET (ad,soyad,eposta,pass) = ("+values+") WHERE id ="+aktifKullanici.id, connection);
+                string values = "'" + txtName.Text + "','" + txtSurname.Text + "','" + txtEmail.Text + "','" + txtPass.Text + "'";
+                command = new NpgsqlCommand("UPDATE kisi SET (ad,soyad,eposta,pass) = (" + values + ") WHERE id =" + aktifKullanici.id, connection);
 
                 command.ExecuteNonQuery();
                 setAktifKullaniciFromTextBox(aktifKullanici);
@@ -247,6 +317,21 @@ namespace Kutuphane_Yonetim {
             getAndSetPersonalInfo();
         }
 
-    #endregion
+        #endregion
+
+
+        private void buttonReturn_Click(object sender, EventArgs e) {
+            
+        }
+
+        void ReturnBook(ListViewItem item) {
+
+        }
+
+        private void listViewMyBooks_SelectedIndexChanged(object sender, EventArgs e) {
+            
+        }
+
+
     }
 }
