@@ -28,8 +28,6 @@ namespace Kutuphane_Yonetim {
             panelList.Add(metroPanel3);
             ChangeState(0);
             
-
-
         }
 
         #region Global
@@ -342,7 +340,6 @@ namespace Kutuphane_Yonetim {
         }
 
         #endregion
-
 
     }
 }
