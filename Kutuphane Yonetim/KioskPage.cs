@@ -225,9 +225,9 @@ namespace Kutuphane_Yonetim {
                     }
 
                     if (gun > gunSinir) {//CEZA
-                        command = new NpgsqlCommand("UPDATE akillikart SET bakiye = bakiye " + (-gun).ToString(), connection);
+                        command = new NpgsqlCommand("UPDATE akillikart SET bakiye = bakiye -" + ((gun-gunSinir)).ToString(), connection);
                         command.ExecuteNonQuery();
-                        MessageBox.Show("Ürünü geç getirdiğiniz için " + gun.ToString() + " TL bakiyenizden düşülmüştür.");
+                        MessageBox.Show("Ürünü geç getirdiğiniz için " + ((gun - gunSinir)).ToString() + " TL bakiyenizden düşülmüştür.");
                     } else {
                         MessageBox.Show("Ürünü zamanında  teslim ettiğiniz için teşekkür ederiz.");
                     }
@@ -249,12 +249,13 @@ namespace Kutuphane_Yonetim {
                     reader.Close();
                     //Int64 countRezerve = (Int64)controlCommand.ExecuteScalar();
 
-                    if (anlikAdet < 0) {//stokta kitap yok
+                    if (anlikAdet <= 0) {//stokta kitap yok
                         
                         DialogResult dialogResult = MessageBox.Show(this, "Şu anda bu kitap elimizde bulunmamaktadır.\nRezerve Etmek istermisiniz?", "?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (dialogResult == DialogResult.Yes) {
                             command = new NpgsqlCommand("INSERT INTO kisi_urun (kisi_id,urun_id,rezerve) VALUES ("+kisiID+","+urunID+",TRUE)",connection);
                             command.ExecuteNonQuery();
+                            MessageBox.Show("Rezervasyonunuz yapılmıştır.");
                             return 1;
                         } else if (dialogResult == DialogResult.No) {
                             return 0;

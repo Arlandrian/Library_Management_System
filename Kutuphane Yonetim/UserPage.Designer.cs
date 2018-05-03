@@ -47,11 +47,12 @@
             this.rezerve = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tip = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
-            this.buttonReturn = new MetroFramework.Controls.MetroButton();
+            this.buttonCancelRez = new MetroFramework.Controls.MetroButton();
             this.listViewMyBooks = new MetroFramework.Controls.MetroListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.txtPass = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
@@ -64,8 +65,6 @@
             this.labelKisiName = new MetroFramework.Controls.MetroLabel();
             this.labelBakiye = new MaterialSkin.Controls.MaterialLabel();
             this.labelWelcome = new MaterialSkin.Controls.MaterialLabel();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.buttonCancelRez = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).BeginInit();
             this.metroTabControl.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
@@ -177,12 +176,12 @@
             // 
             this.categoroiesLabel.AutoSize = true;
             this.categoroiesLabel.Depth = 0;
-            this.categoroiesLabel.Font = new System.Drawing.Font("Roboto", 11F);
+            this.categoroiesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.categoroiesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.categoroiesLabel.Location = new System.Drawing.Point(8, 81);
             this.categoroiesLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.categoroiesLabel.Name = "categoroiesLabel";
-            this.categoroiesLabel.Size = new System.Drawing.Size(82, 19);
+            this.categoroiesLabel.Size = new System.Drawing.Size(79, 18);
             this.categoroiesLabel.TabIndex = 25;
             this.categoroiesLabel.Text = "Kategoriler";
             // 
@@ -290,7 +289,6 @@
             // metroTabPage2
             // 
             this.metroTabPage2.Controls.Add(this.buttonCancelRez);
-            this.metroTabPage2.Controls.Add(this.buttonReturn);
             this.metroTabPage2.Controls.Add(this.listViewMyBooks);
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
             this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
@@ -304,15 +302,15 @@
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
             // 
-            // buttonReturn
+            // buttonCancelRez
             // 
-            this.buttonReturn.Location = new System.Drawing.Point(692, 174);
-            this.buttonReturn.Name = "buttonReturn";
-            this.buttonReturn.Size = new System.Drawing.Size(97, 32);
-            this.buttonReturn.TabIndex = 3;
-            this.buttonReturn.Text = "İade Et";
-            this.buttonReturn.UseSelectable = true;
-            this.buttonReturn.Click += new System.EventHandler(this.buttonReturn_Click);
+            this.buttonCancelRez.Location = new System.Drawing.Point(674, 244);
+            this.buttonCancelRez.Name = "buttonCancelRez";
+            this.buttonCancelRez.Size = new System.Drawing.Size(140, 32);
+            this.buttonCancelRez.TabIndex = 4;
+            this.buttonCancelRez.Text = "Rezervasyonu iptal Et";
+            this.buttonCancelRez.UseSelectable = true;
+            this.buttonCancelRez.Click += new System.EventHandler(this.buttonCancelRez_Click);
             // 
             // listViewMyBooks
             // 
@@ -348,6 +346,11 @@
             // 
             this.columnHeader3.Text = "Tarih";
             this.columnHeader3.Width = 130;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Rezervasyon Mu";
+            this.columnHeader4.Width = 124;
             // 
             // metroTabPage3
             // 
@@ -565,21 +568,6 @@
             this.labelWelcome.Text = "Hoş Geldin ";
             this.labelWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Rezervasyon Mu";
-            this.columnHeader4.Width = 124;
-            // 
-            // buttonCancelRez
-            // 
-            this.buttonCancelRez.Location = new System.Drawing.Point(692, 106);
-            this.buttonCancelRez.Name = "buttonCancelRez";
-            this.buttonCancelRez.Size = new System.Drawing.Size(140, 32);
-            this.buttonCancelRez.TabIndex = 4;
-            this.buttonCancelRez.Text = "Rezervasyonu iptal Et";
-            this.buttonCancelRez.UseSelectable = true;
-            this.buttonCancelRez.Click += new System.EventHandler(this.buttonCancelRez_Click);
-            // 
             // UserPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -633,7 +621,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private MetroFramework.Controls.MetroButton buttonReturn;
         private System.Windows.Forms.Label labelType;
         private System.Windows.Forms.Label labelName;
         private MetroFramework.Controls.MetroTextBox txtPass;
