@@ -45,7 +45,9 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2AdSoyad = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
+            this.txt2BorcOde = new MetroFramework.Controls.MetroTextBox();
+            this.button2BorcOde = new MetroFramework.Controls.MetroButton();
+            this.label2Bakiye = new MetroFramework.Controls.MetroLabel();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.metroPanel2.SuspendLayout();
@@ -56,12 +58,12 @@
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.buttonBack);
             this.metroPanel1.Controls.Add(this.txt0UrunOkut);
             this.metroPanel1.Controls.Add(this.txt0KartOkut);
             this.metroPanel1.Controls.Add(this.button0UrunOkut);
             this.metroPanel1.Controls.Add(this.button0KartıOkut);
             this.metroPanel1.Controls.Add(this.metroLabel1);
-            this.metroPanel1.Controls.Add(this.buttonBack);
             this.metroPanel1.Controls.Add(this.pictureBox1);
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
@@ -196,7 +198,7 @@
             this.metroPanel2.HorizontalScrollbarBarColor = true;
             this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel2.HorizontalScrollbarSize = 10;
-            this.metroPanel2.Location = new System.Drawing.Point(516, 63);
+            this.metroPanel2.Location = new System.Drawing.Point(23, 63);
             this.metroPanel2.Name = "metroPanel2";
             this.metroPanel2.Size = new System.Drawing.Size(466, 550);
             this.metroPanel2.TabIndex = 2;
@@ -289,6 +291,9 @@
             // 
             // metroPanel3
             // 
+            this.metroPanel3.Controls.Add(this.label2Bakiye);
+            this.metroPanel3.Controls.Add(this.txt2BorcOde);
+            this.metroPanel3.Controls.Add(this.button2BorcOde);
             this.metroPanel3.Controls.Add(this.txt2UrunOkut);
             this.metroPanel3.Controls.Add(this.metroLabel3);
             this.metroPanel3.Controls.Add(this.button2UrunOkut);
@@ -298,7 +303,7 @@
             this.metroPanel3.HorizontalScrollbarBarColor = true;
             this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel3.HorizontalScrollbarSize = 10;
-            this.metroPanel3.Location = new System.Drawing.Point(23, 619);
+            this.metroPanel3.Location = new System.Drawing.Point(23, 63);
             this.metroPanel3.Name = "metroPanel3";
             this.metroPanel3.Size = new System.Drawing.Size(466, 550);
             this.metroPanel3.TabIndex = 2;
@@ -321,7 +326,7 @@
             this.txt2UrunOkut.CustomButton.UseSelectable = true;
             this.txt2UrunOkut.CustomButton.Visible = false;
             this.txt2UrunOkut.Lines = new string[0];
-            this.txt2UrunOkut.Location = new System.Drawing.Point(196, 425);
+            this.txt2UrunOkut.Location = new System.Drawing.Point(270, 425);
             this.txt2UrunOkut.MaxLength = 32767;
             this.txt2UrunOkut.Name = "txt2UrunOkut";
             this.txt2UrunOkut.PasswordChar = '\0';
@@ -349,7 +354,7 @@
             // 
             // button2UrunOkut
             // 
-            this.button2UrunOkut.Location = new System.Drawing.Point(196, 454);
+            this.button2UrunOkut.Location = new System.Drawing.Point(270, 454);
             this.button2UrunOkut.Name = "button2UrunOkut";
             this.button2UrunOkut.Size = new System.Drawing.Size(75, 23);
             this.button2UrunOkut.TabIndex = 12;
@@ -389,31 +394,68 @@
             this.metroLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabel5.WrapToLine = true;
             // 
-            // metroPanel4
+            // txt2BorcOde
             // 
-            this.metroPanel4.HorizontalScrollbarBarColor = true;
-            this.metroPanel4.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel4.HorizontalScrollbarSize = 10;
-            this.metroPanel4.Location = new System.Drawing.Point(516, 619);
-            this.metroPanel4.Name = "metroPanel4";
-            this.metroPanel4.Size = new System.Drawing.Size(466, 550);
-            this.metroPanel4.TabIndex = 3;
-            this.metroPanel4.VerticalScrollbarBarColor = true;
-            this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel4.VerticalScrollbarSize = 10;
+            // 
+            // 
+            // 
+            this.txt2BorcOde.CustomButton.Image = null;
+            this.txt2BorcOde.CustomButton.Location = new System.Drawing.Point(53, 1);
+            this.txt2BorcOde.CustomButton.Name = "";
+            this.txt2BorcOde.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txt2BorcOde.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txt2BorcOde.CustomButton.TabIndex = 1;
+            this.txt2BorcOde.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txt2BorcOde.CustomButton.UseSelectable = true;
+            this.txt2BorcOde.CustomButton.Visible = false;
+            this.txt2BorcOde.Lines = new string[0];
+            this.txt2BorcOde.Location = new System.Drawing.Point(122, 425);
+            this.txt2BorcOde.MaxLength = 32767;
+            this.txt2BorcOde.Name = "txt2BorcOde";
+            this.txt2BorcOde.PasswordChar = '\0';
+            this.txt2BorcOde.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txt2BorcOde.SelectedText = "";
+            this.txt2BorcOde.SelectionLength = 0;
+            this.txt2BorcOde.SelectionStart = 0;
+            this.txt2BorcOde.ShortcutsEnabled = true;
+            this.txt2BorcOde.Size = new System.Drawing.Size(75, 23);
+            this.txt2BorcOde.TabIndex = 19;
+            this.txt2BorcOde.UseSelectable = true;
+            this.txt2BorcOde.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txt2BorcOde.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // button2BorcOde
+            // 
+            this.button2BorcOde.Location = new System.Drawing.Point(122, 454);
+            this.button2BorcOde.Name = "button2BorcOde";
+            this.button2BorcOde.Size = new System.Drawing.Size(75, 23);
+            this.button2BorcOde.TabIndex = 18;
+            this.button2BorcOde.Text = "Borc Ode";
+            this.button2BorcOde.UseSelectable = true;
+            this.button2BorcOde.Click += new System.EventHandler(this.button2BorcOde_Click);
+            // 
+            // label2Bakiye
+            // 
+            this.label2Bakiye.AutoSize = true;
+            this.label2Bakiye.Location = new System.Drawing.Point(87, 397);
+            this.label2Bakiye.Name = "label2Bakiye";
+            this.label2Bakiye.Size = new System.Drawing.Size(73, 19);
+            this.label2Bakiye.TabIndex = 20;
+            this.label2Bakiye.Text = "Bakiyeniz : ";
+            this.label2Bakiye.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2Bakiye.WrapToLine = true;
             // 
             // KioskPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1020, 1100);
-            this.Controls.Add(this.metroPanel4);
-            this.Controls.Add(this.metroPanel3);
+            this.ClientSize = new System.Drawing.Size(502, 623);
             this.Controls.Add(this.metroPanel2);
             this.Controls.Add(this.metroPanel1);
+            this.Controls.Add(this.metroPanel3);
             this.Name = "KioskPage";
             this.Style = MetroFramework.MetroColorStyle.Lime;
-            this.Text = "KioskPage";
+            this.Text = "Kiosk";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.KioskPage_FormClosing);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
@@ -433,7 +475,6 @@
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroPanel metroPanel2;
         private MetroFramework.Controls.MetroPanel metroPanel3;
-        private MetroFramework.Controls.MetroPanel metroPanel4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private MetroFramework.Controls.MetroButton buttonBack;
         private MetroFramework.Controls.MetroButton button0UrunOkut;
@@ -453,5 +494,8 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private MetroFramework.Controls.MetroLabel label2AdSoyad;
         private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroTextBox txt2BorcOde;
+        private MetroFramework.Controls.MetroButton button2BorcOde;
+        private MetroFramework.Controls.MetroLabel label2Bakiye;
     }
 }

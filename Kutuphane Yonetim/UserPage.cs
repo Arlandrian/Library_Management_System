@@ -239,6 +239,7 @@ namespace Kutuphane_Yonetim {
             MakeRezervation();
             listViewMyBooks.Items.Clear();
             GetAllUserItems();
+
         }
 
         #endregion

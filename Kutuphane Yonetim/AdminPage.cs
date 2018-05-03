@@ -189,7 +189,7 @@ namespace Kutuphane_Yonetim {
         private void buttonAdd_Click(object sender, EventArgs e) {
             AddItem();
             listViewProducts.Items.Clear();
-            if (listBox1.SelectedItem == null) {
+            if (listBox1.SelectedItems.Count == 0) {
                 GetAllItems();
             } else {
                 GetAllItemsWithCategory(listBox1.SelectedItem.ToString());

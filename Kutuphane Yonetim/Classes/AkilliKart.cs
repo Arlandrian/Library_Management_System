@@ -10,7 +10,7 @@ namespace Kutuphane_Yonetim
     {
 
         private float bakiye;
-        private string id;
+        public string id { get; private set; }
 
         public AkilliKart(float bakiye, string id)
         {
@@ -35,6 +35,8 @@ namespace Kutuphane_Yonetim
         {
             return bakiye;
         }
+
+        
 
     }
 }

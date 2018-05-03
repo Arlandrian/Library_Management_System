@@ -82,11 +82,11 @@ namespace Kutuphane_Yonetim {
                 
                 if (IsNumeric(textboxUsername.Text)) {//ak_id
                     command = new NpgsqlCommand("SELECT * FROM kisi WHERE ak_id = " + textboxUsername.Text, connection);
-                    command2 = new NpgsqlCommand("SELECT bakiye FROM akillikart,kisi WHERE akillikart.id = kisi.id AND ak_id=" + textboxUsername.Text, connection);
+                    command2 = new NpgsqlCommand("SELECT bakiye FROM akillikart,kisi WHERE akillikart.id = kisi.ak_id AND ak_id=" + textboxUsername.Text, connection);
                     
                 } else {//eposta
                     command = new NpgsqlCommand("SELECT * FROM kisi WHERE eposta = '" + textboxUsername.Text + "'", connection);
-                    command2 = new NpgsqlCommand("SELECT bakiye FROM akillikart,kisi WHERE akillikart.id = kisi.id AND eposta = '" + textboxUsername.Text + "'", connection);
+                    command2 = new NpgsqlCommand("SELECT bakiye FROM akillikart,kisi WHERE akillikart.id = kisi.ak_id AND eposta = '" + textboxUsername.Text + "'", connection);
                 }
                 NpgsqlDataReader reader = command2.ExecuteReader();
                 reader.Read();
