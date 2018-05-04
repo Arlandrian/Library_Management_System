@@ -90,9 +90,10 @@
             this.metroTabControl.Controls.Add(this.metroTabPage3);
             this.metroTabControl.Location = new System.Drawing.Point(9, 63);
             this.metroTabControl.Name = "metroTabControl";
-            this.metroTabControl.SelectedIndex = 1;
+            this.metroTabControl.SelectedIndex = 0;
             this.metroTabControl.Size = new System.Drawing.Size(1009, 628);
             this.metroTabControl.TabIndex = 23;
+            this.metroTabControl.TabStop = false;
             this.metroTabControl.UseSelectable = true;
             // 
             // metroTabPage1
@@ -113,7 +114,7 @@
             this.metroTabPage1.Name = "metroTabPage1";
             this.metroTabPage1.Size = new System.Drawing.Size(1001, 586);
             this.metroTabPage1.TabIndex = 0;
-            this.metroTabPage1.Text = "Kitap Al";
+            this.metroTabPage1.Text = "Kitap Rezervasyon";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
@@ -176,12 +177,12 @@
             // 
             this.categoroiesLabel.AutoSize = true;
             this.categoroiesLabel.Depth = 0;
-            this.categoroiesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.categoroiesLabel.Font = new System.Drawing.Font("Roboto", 11F);
             this.categoroiesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.categoroiesLabel.Location = new System.Drawing.Point(8, 81);
             this.categoroiesLabel.MouseState = MaterialSkin.MouseState.HOVER;
             this.categoroiesLabel.Name = "categoroiesLabel";
-            this.categoroiesLabel.Size = new System.Drawing.Size(79, 18);
+            this.categoroiesLabel.Size = new System.Drawing.Size(82, 19);
             this.categoroiesLabel.TabIndex = 25;
             this.categoroiesLabel.Text = "Kategoriler";
             // 
