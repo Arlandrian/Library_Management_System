@@ -162,9 +162,9 @@ namespace Kutuphane_Yonetim {
         private void RezervasyonSilKitabıVer(NpgsqlConnection connection) {
             try {
                 NpgsqlCommand command;
-                command = new NpgsqlCommand("DELETE FROM kisi_urun WHERE kisi_id=" + aktifKullanici.id + " AND urun_id=" + aktifUrun.id + " AND rezerve = ", connection);
+                command = new NpgsqlCommand("DELETE FROM kisi_urun WHERE kisi_id=" + aktifKullanici.id + " AND urun_id=" + aktifUrun.id + " AND rezerve = TRUE", connection);
                 command.ExecuteNonQuery();
-                command = new NpgsqlCommand("INSERT INTO kisi_urun (kisi_id,urun_id,rezerve) VALUES (" + aktifKullanici.id + "," + aktifUrun.id + ",TRUE)", connection);
+                command = new NpgsqlCommand("INSERT INTO kisi_urun (kisi_id,urun_id,rezerve) VALUES (" + aktifKullanici.id + "," + aktifUrun.id + ",FALSE)", connection);
                 command.ExecuteNonQuery();
 
             } catch (Exception ex) {
@@ -265,6 +265,7 @@ namespace Kutuphane_Yonetim {
                         
                         if (countRezerve > 0) {
                             RezervasyonSilKitabıVer(connection);
+                            MessageBox.Show("Kitabı aldınız");
                         } else {
                             command = new NpgsqlCommand("INSERT INTO kisi_urun (kisi_id,urun_id) VALUES (" + kisiID + "," + urunID + ")", connection);
                             command.ExecuteNonQuery();
