@@ -192,7 +192,6 @@ namespace Kutuphane_Yonetim {
                 //Int64 elindekiAdet = (Int64)controlCommand.ExecuteScalar();
 
                 if (elindekiAdet > 0) {//Kitap adamda var
-                    
 
                     command = new NpgsqlCommand("SELECT CURRENT_DATE-(SELECT tarih FROM kisi_urun WHERE urun_id=" + urunID + " AND kisi_id =" + kisiID + " )", connection);
                     reader = command.ExecuteReader();

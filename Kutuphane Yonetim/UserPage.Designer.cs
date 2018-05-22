@@ -199,6 +199,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(137, 173);
             this.listBox1.TabIndex = 24;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // textboxSearch
             // 
@@ -231,6 +232,7 @@
             this.textboxSearch.WaterMark = "Search...";
             this.textboxSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.textboxSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.textboxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textboxSearch_KeyDown);
             // 
             // listViewProducts
             // 
@@ -557,14 +559,13 @@
             // 
             // labelWelcome
             // 
-            this.labelWelcome.AutoSize = true;
             this.labelWelcome.Depth = 0;
             this.labelWelcome.Font = new System.Drawing.Font("Roboto", 11F);
             this.labelWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelWelcome.Location = new System.Drawing.Point(391, 41);
+            this.labelWelcome.Location = new System.Drawing.Point(223, 41);
             this.labelWelcome.MouseState = MaterialSkin.MouseState.HOVER;
             this.labelWelcome.Name = "labelWelcome";
-            this.labelWelcome.Size = new System.Drawing.Size(87, 19);
+            this.labelWelcome.Size = new System.Drawing.Size(599, 19);
             this.labelWelcome.TabIndex = 38;
             this.labelWelcome.Text = "Hoş Geldin ";
             this.labelWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -592,6 +593,10 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void TextboxSearch_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e) {
+            throw new System.NotImplementedException();
         }
 
         #endregion

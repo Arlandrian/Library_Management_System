@@ -183,7 +183,7 @@ namespace Kutuphane_Yonetim {
 
         #endregion
 
-        #region KitapAL
+        #region Rezervasyon
         //category changed
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
             listViewProducts.Items.Clear();
@@ -231,7 +231,6 @@ namespace Kutuphane_Yonetim {
             } else {
                 MessageBox.Show("Lütfen bir kitap seçin");
             }
-            
             
         }
 
@@ -332,7 +331,6 @@ namespace Kutuphane_Yonetim {
         private void listViewMyBooks_SelectedIndexChanged(object sender, EventArgs e) {
             
         }
-
 
     }
 }

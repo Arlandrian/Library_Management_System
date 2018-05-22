@@ -24,12 +24,12 @@
         /// </summary>
         private void InitializeComponent() {
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.buttonBack = new MetroFramework.Controls.MetroButton();
             this.txt0UrunOkut = new MetroFramework.Controls.MetroTextBox();
             this.txt0KartOkut = new MetroFramework.Controls.MetroTextBox();
             this.button0UrunOkut = new MetroFramework.Controls.MetroButton();
             this.button0KartıOkut = new MetroFramework.Controls.MetroButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.buttonBack = new MetroFramework.Controls.MetroButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
             this.txt1KartOkut = new MetroFramework.Controls.MetroTextBox();
@@ -39,15 +39,15 @@
             this.label111 = new MetroFramework.Controls.MetroLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
+            this.label2Bakiye = new MetroFramework.Controls.MetroLabel();
+            this.txt2BorcOde = new MetroFramework.Controls.MetroTextBox();
+            this.button2BorcOde = new MetroFramework.Controls.MetroButton();
             this.txt2UrunOkut = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.button2UrunOkut = new MetroFramework.Controls.MetroButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2AdSoyad = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.txt2BorcOde = new MetroFramework.Controls.MetroTextBox();
-            this.button2BorcOde = new MetroFramework.Controls.MetroButton();
-            this.label2Bakiye = new MetroFramework.Controls.MetroLabel();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.metroPanel2.SuspendLayout();
@@ -75,6 +75,16 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // buttonBack
+            // 
+            this.buttonBack.Location = new System.Drawing.Point(25, 16);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(75, 23);
+            this.buttonBack.TabIndex = 3;
+            this.buttonBack.Text = "Geri";
+            this.buttonBack.UseSelectable = true;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // txt0UrunOkut
             // 
@@ -167,16 +177,6 @@
             this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabel1.WrapToLine = true;
             // 
-            // buttonBack
-            // 
-            this.buttonBack.Location = new System.Drawing.Point(25, 16);
-            this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(75, 23);
-            this.buttonBack.TabIndex = 3;
-            this.buttonBack.Text = "Geri";
-            this.buttonBack.UseSelectable = true;
-            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Kutuphane_Yonetim.Properties.Resources.barcode_scanning;
@@ -259,13 +259,12 @@
             // 
             // label1Urun
             // 
-            this.label1Urun.AutoSize = true;
-            this.label1Urun.Location = new System.Drawing.Point(186, 57);
+            this.label1Urun.Location = new System.Drawing.Point(3, 57);
             this.label1Urun.Name = "label1Urun";
-            this.label1Urun.Size = new System.Drawing.Size(31, 19);
+            this.label1Urun.Size = new System.Drawing.Size(460, 19);
             this.label1Urun.TabIndex = 10;
             this.label1Urun.Text = "Hos";
-            this.label1Urun.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1Urun.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1Urun.WrapToLine = true;
             // 
             // label111
@@ -310,6 +309,57 @@
             this.metroPanel3.VerticalScrollbarBarColor = true;
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel3.VerticalScrollbarSize = 10;
+            // 
+            // label2Bakiye
+            // 
+            this.label2Bakiye.AutoSize = true;
+            this.label2Bakiye.Location = new System.Drawing.Point(87, 397);
+            this.label2Bakiye.Name = "label2Bakiye";
+            this.label2Bakiye.Size = new System.Drawing.Size(73, 19);
+            this.label2Bakiye.TabIndex = 20;
+            this.label2Bakiye.Text = "Bakiyeniz : ";
+            this.label2Bakiye.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2Bakiye.WrapToLine = true;
+            // 
+            // txt2BorcOde
+            // 
+            // 
+            // 
+            // 
+            this.txt2BorcOde.CustomButton.Image = null;
+            this.txt2BorcOde.CustomButton.Location = new System.Drawing.Point(53, 1);
+            this.txt2BorcOde.CustomButton.Name = "";
+            this.txt2BorcOde.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txt2BorcOde.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txt2BorcOde.CustomButton.TabIndex = 1;
+            this.txt2BorcOde.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txt2BorcOde.CustomButton.UseSelectable = true;
+            this.txt2BorcOde.CustomButton.Visible = false;
+            this.txt2BorcOde.Lines = new string[0];
+            this.txt2BorcOde.Location = new System.Drawing.Point(122, 425);
+            this.txt2BorcOde.MaxLength = 32767;
+            this.txt2BorcOde.Name = "txt2BorcOde";
+            this.txt2BorcOde.PasswordChar = '\0';
+            this.txt2BorcOde.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txt2BorcOde.SelectedText = "";
+            this.txt2BorcOde.SelectionLength = 0;
+            this.txt2BorcOde.SelectionStart = 0;
+            this.txt2BorcOde.ShortcutsEnabled = true;
+            this.txt2BorcOde.Size = new System.Drawing.Size(75, 23);
+            this.txt2BorcOde.TabIndex = 19;
+            this.txt2BorcOde.UseSelectable = true;
+            this.txt2BorcOde.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txt2BorcOde.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // button2BorcOde
+            // 
+            this.button2BorcOde.Location = new System.Drawing.Point(122, 454);
+            this.button2BorcOde.Name = "button2BorcOde";
+            this.button2BorcOde.Size = new System.Drawing.Size(75, 23);
+            this.button2BorcOde.TabIndex = 18;
+            this.button2BorcOde.Text = "Borc Ode";
+            this.button2BorcOde.UseSelectable = true;
+            this.button2BorcOde.Click += new System.EventHandler(this.button2BorcOde_Click);
             // 
             // txt2UrunOkut
             // 
@@ -374,10 +424,9 @@
             // 
             // label2AdSoyad
             // 
-            this.label2AdSoyad.AutoSize = true;
-            this.label2AdSoyad.Location = new System.Drawing.Point(208, 60);
+            this.label2AdSoyad.Location = new System.Drawing.Point(3, 57);
             this.label2AdSoyad.Name = "label2AdSoyad";
-            this.label2AdSoyad.Size = new System.Drawing.Size(31, 19);
+            this.label2AdSoyad.Size = new System.Drawing.Size(460, 19);
             this.label2AdSoyad.TabIndex = 16;
             this.label2AdSoyad.Text = "Hos";
             this.label2AdSoyad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -394,65 +443,14 @@
             this.metroLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroLabel5.WrapToLine = true;
             // 
-            // txt2BorcOde
-            // 
-            // 
-            // 
-            // 
-            this.txt2BorcOde.CustomButton.Image = null;
-            this.txt2BorcOde.CustomButton.Location = new System.Drawing.Point(53, 1);
-            this.txt2BorcOde.CustomButton.Name = "";
-            this.txt2BorcOde.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txt2BorcOde.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txt2BorcOde.CustomButton.TabIndex = 1;
-            this.txt2BorcOde.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txt2BorcOde.CustomButton.UseSelectable = true;
-            this.txt2BorcOde.CustomButton.Visible = false;
-            this.txt2BorcOde.Lines = new string[0];
-            this.txt2BorcOde.Location = new System.Drawing.Point(122, 425);
-            this.txt2BorcOde.MaxLength = 32767;
-            this.txt2BorcOde.Name = "txt2BorcOde";
-            this.txt2BorcOde.PasswordChar = '\0';
-            this.txt2BorcOde.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txt2BorcOde.SelectedText = "";
-            this.txt2BorcOde.SelectionLength = 0;
-            this.txt2BorcOde.SelectionStart = 0;
-            this.txt2BorcOde.ShortcutsEnabled = true;
-            this.txt2BorcOde.Size = new System.Drawing.Size(75, 23);
-            this.txt2BorcOde.TabIndex = 19;
-            this.txt2BorcOde.UseSelectable = true;
-            this.txt2BorcOde.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txt2BorcOde.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // button2BorcOde
-            // 
-            this.button2BorcOde.Location = new System.Drawing.Point(122, 454);
-            this.button2BorcOde.Name = "button2BorcOde";
-            this.button2BorcOde.Size = new System.Drawing.Size(75, 23);
-            this.button2BorcOde.TabIndex = 18;
-            this.button2BorcOde.Text = "Borc Ode";
-            this.button2BorcOde.UseSelectable = true;
-            this.button2BorcOde.Click += new System.EventHandler(this.button2BorcOde_Click);
-            // 
-            // label2Bakiye
-            // 
-            this.label2Bakiye.AutoSize = true;
-            this.label2Bakiye.Location = new System.Drawing.Point(87, 397);
-            this.label2Bakiye.Name = "label2Bakiye";
-            this.label2Bakiye.Size = new System.Drawing.Size(73, 19);
-            this.label2Bakiye.TabIndex = 20;
-            this.label2Bakiye.Text = "Bakiyeniz : ";
-            this.label2Bakiye.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label2Bakiye.WrapToLine = true;
-            // 
             // KioskPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(502, 623);
+            this.Controls.Add(this.metroPanel3);
             this.Controls.Add(this.metroPanel2);
             this.Controls.Add(this.metroPanel1);
-            this.Controls.Add(this.metroPanel3);
             this.Name = "KioskPage";
             this.Style = MetroFramework.MetroColorStyle.Lime;
             this.Text = "Kiosk";

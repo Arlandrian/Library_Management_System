@@ -56,18 +56,18 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtMemurKitap = new MetroFramework.Controls.MetroTextBox();
             this.listViewProducts = new MetroFramework.Controls.MetroListView();
-            this.label14 = new System.Windows.Forms.Label();
-            this.backButton = new MetroFramework.Controls.MetroButton();
-            this.buttonDelete = new MetroFramework.Controls.MetroButton();
-            this.updateSinir = new MetroFramework.Controls.MetroButton();
-            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
-            this.buttonSearch = new MetroFramework.Controls.MetroButton();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label14 = new System.Windows.Forms.Label();
+            this.backButton = new MetroFramework.Controls.MetroButton();
+            this.buttonDelete = new MetroFramework.Controls.MetroButton();
+            this.updateSinir = new MetroFramework.Controls.MetroButton();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            this.buttonSearch = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -308,6 +308,7 @@
             // 
             // comboboxCategory
             // 
+            this.comboboxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboboxCategory.FormattingEnabled = true;
             this.comboboxCategory.Items.AddRange(new object[] {
             "Kitap",
@@ -675,6 +676,36 @@
             this.listViewProducts.View = System.Windows.Forms.View.Details;
             this.listViewProducts.SelectedIndexChanged += new System.EventHandler(this.listViewProducts_SelectedIndexChanged);
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 110;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "İsim";
+            this.columnHeader2.Width = 110;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Toplam Adet";
+            this.columnHeader3.Width = 100;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Anlık Adet";
+            this.columnHeader4.Width = 85;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Rezerve Adet";
+            this.columnHeader5.Width = 105;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Tip";
+            this.columnHeader6.Width = 110;
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -737,36 +768,6 @@
             this.buttonSearch.Text = "Ara";
             this.buttonSearch.UseSelectable = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 110;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "İsim";
-            this.columnHeader2.Width = 110;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Toplam Adet";
-            this.columnHeader3.Width = 100;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Anlık Adet";
-            this.columnHeader4.Width = 85;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Rezerve Adet";
-            this.columnHeader5.Width = 105;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Tip";
-            this.columnHeader6.Width = 110;
             // 
             // AdminPage
             // 
